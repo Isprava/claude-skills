@@ -8,6 +8,7 @@ A collection of Claude Code skills organized by department. Each skill encodes d
 |-----------|--------|-------------|
 | [Technology](#technology) | 2 | Engineering practices: code review, incident response |
 | [Marketing](#marketing) | 2 | Marketing frameworks: content strategy, campaign planning |
+| [Lohono Stays Marketing](#lohono-stays-marketing) | 6 | Brand-specific skills for Lohono Stays |
 | [Sales](#sales) | 2 | Sales methodology: sales playbook, proposal writing |
 | [Construction](#construction) | 2 | Construction project: planning, safety compliance |
 | [Hospitality Operations](#hospitality-operations) | 2 | Hospitality ops: guest experience, staff scheduling |
@@ -60,6 +61,64 @@ A framework for building campaigns from brief to results — starting with goal 
 **Use when:** "marketing campaign", "campaign brief", "launch plan", "go-to-market", "GTM strategy", "paid media"
 
 **Covers:** Campaign brief, SMART goals, audience segmentation, channel strategy, message architecture, measurement
+
+---
+
+## Lohono Stays Marketing
+
+> Brand-specific marketing skills for **Lohono Stays** — a premium luxury villa rental brand with properties across India (Goa, Alibaug, Lonavala, Coonoor, Srinagar, Jim Corbett, Mussoorie) and internationally (Bali, Phuket, Koh Samui, Maldives, Italy). Brand promise: *"Handpicked homes, paired with unparalleled hospitality."*
+
+### `lohono-brief`
+**Campaign brief writer for Lohono Stays**
+
+Ask for campaign goal, destination, audience segment, and key message — outputs a complete, structured campaign brief with objective, audience profile, tone guidance, key messages, recommended channels, deliverables, and KPIs.
+
+**Use when:** "write a Lohono brief", "campaign brief for Goa", "Harmony Weddings campaign brief", "brief for Luma Villas"
+
+---
+
+### `lohono-persona`
+**Guest persona builder for Lohono Stays**
+
+Ask for destination and occasion type — outputs a vivid, specific guest persona with name, city, motivation, villa preferences, booking behaviour, conversion triggers, and content that resonates.
+
+**Use when:** "build a Lohono persona", "who is our Bali honeymoon guest", "family traveller persona", "Lohono Infinity member profile"
+
+---
+
+### `lohono-linkedin`
+**LinkedIn post writer for Lohono Stays**
+
+Ask for a topic or property — outputs 2 LinkedIn post variations: one story-driven (sensory, scene-first), one insight-driven (perspective, thought leadership). Both with a soft CTA that invites, never sells.
+
+**Use when:** "write a LinkedIn post for Lohono", "Lohono LinkedIn content", "post about Alibaug villa", "Harmony Weddings LinkedIn"
+
+---
+
+### `lohono-adcopy`
+**Ad copy generator for Lohono Stays**
+
+Ask for property/destination, target audience, and platform (Meta, Google, or WhatsApp) — outputs 3 ad variations (emotional, specific, occasion-based) in the correct format with character-count-compliant headlines and body copy.
+
+**Use when:** "write Lohono ads", "Meta ads for Goa", "Google ad copy for Lohono", "WhatsApp broadcast message"
+
+---
+
+### `lohono-review`
+**Brand content reviewer for Lohono Stays**
+
+Ask for copy to be pasted — scores against 5 criteria (tone, clarity, specificity to Lohono offerings, CTA quality, cliché avoidance), gives criterion-level scores out of 5, specific quoted feedback, and a fully revised version.
+
+**Use when:** "review this Lohono copy", "is this on-brand?", "check this caption", "brand review", "does this sound like Lohono"
+
+---
+
+### `lohono-report`
+**Campaign performance report writer for Lohono Stays**
+
+Ask for campaign metrics and objective — outputs a complete stakeholder report with executive summary, KPI performance vs target, budget efficiency, channel-by-channel breakdown, top performers, what worked/didn't, and 3 specific recommendations for the next campaign.
+
+**Use when:** "write a campaign report", "Lohono performance report", "campaign debrief", "what worked in this campaign"
 
 ---
 
@@ -180,7 +239,13 @@ claude-skills/
 │   └── incident-response/
 ├── marketing/
 │   ├── content-strategy/
-│   └── campaign-planning/
+│   ├── campaign-planning/
+│   ├── lohono-brief/          ← Lohono campaign brief writer
+│   ├── lohono-persona/        ← Lohono guest persona builder
+│   ├── lohono-linkedin/       ← Lohono LinkedIn post writer
+│   ├── lohono-adcopy/         ← Lohono ad copy generator
+│   ├── lohono-review/         ← Lohono brand content reviewer
+│   └── lohono-report/         ← Lohono campaign report writer
 ├── sales/
 │   ├── sales-playbook/
 │   └── proposal-writing/

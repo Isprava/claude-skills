@@ -25,6 +25,19 @@
       ]
     },
     {
+      "id": "lohono-marketing",
+      "name": "Lohono Stays Marketing",
+      "description": "Brand-specific marketing skills for Lohono Stays: campaign briefs, guest personas, LinkedIn content, ad copy, brand content review, and campaign performance reporting.",
+      "skills": [
+        "marketing/lohono-brief",
+        "marketing/lohono-persona",
+        "marketing/lohono-linkedin",
+        "marketing/lohono-adcopy",
+        "marketing/lohono-review",
+        "marketing/lohono-report"
+      ]
+    },
+    {
       "id": "sales",
       "name": "Sales",
       "description": "Sales skills: sales playbook, proposal writing, objection handling, and more.",
