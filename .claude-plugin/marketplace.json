@@ -1,0 +1,64 @@
+{
+  "name": "org-skills",
+  "displayName": "Organisation Skills Library",
+  "description": "Organization-wide Claude Code skills organized by department: Technology, Marketing, Sales, Construction, Hospitality Operations, and Construction Operations.",
+  "author": "your-org",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "plugins": [
+    {
+      "id": "technology",
+      "name": "Technology",
+      "description": "Engineering and technology skills: code review, incident response, architecture, and more.",
+      "skills": [
+        "technology/code-review",
+        "technology/incident-response"
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing",
+      "description": "Marketing skills: content strategy, campaign planning, brand voice, and more.",
+      "skills": [
+        "marketing/content-strategy",
+        "marketing/campaign-planning"
+      ]
+    },
+    {
+      "id": "sales",
+      "name": "Sales",
+      "description": "Sales skills: sales playbook, proposal writing, objection handling, and more.",
+      "skills": [
+        "sales/sales-playbook",
+        "sales/proposal-writing"
+      ]
+    },
+    {
+      "id": "construction",
+      "name": "Construction",
+      "description": "Construction project skills: project planning, safety compliance, cost estimation, and more.",
+      "skills": [
+        "construction/project-planning",
+        "construction/safety-compliance"
+      ]
+    },
+    {
+      "id": "hospitality-operations",
+      "name": "Hospitality Operations",
+      "description": "Hospitality operations skills: guest experience, staff scheduling, service recovery, and more.",
+      "skills": [
+        "hospitality-operations/guest-experience",
+        "hospitality-operations/staff-scheduling"
+      ]
+    },
+    {
+      "id": "construction-operations",
+      "name": "Construction Operations",
+      "description": "Construction site operations skills: site inspection, progress reporting, defect management, and more.",
+      "skills": [
+        "construction-operations/site-inspection",
+        "construction-operations/progress-reporting"
+      ]
+    }
+  ]
+}
