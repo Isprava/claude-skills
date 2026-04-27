@@ -1,0 +1,456 @@
+# Marketing Benchmarks Configuration
+# Industry-specific and channel-specific benchmarks for marketing metrics analysis
+
+version: "1.0"
+last_updated: "2025-02"
+
+# =============================================================================
+# ACQUISITION COST BENCHMARKS
+# =============================================================================
+
+acquisition_costs:
+  by_industry:
+    saas_b2b:
+      cac:
+        low: 15000
+        median: 50000
+        high: 150000
+        notes: "Varies significantly by deal size and sales model"
+      cpl:
+        low: 2000
+        median: 8000
+        high: 15000
+        notes: "Enterprise leads higher cost"
+
+    saas_b2c:
+      cac:
+        low: 500
+        median: 2000
+        high: 8000
+      cpl:
+        low: 100
+        median: 500
+        high: 2000
+
+    ecommerce:
+      cac:
+        low: 500
+        median: 1500
+        high: 5000
+        notes: "Category dependent"
+      cpl:
+        low: 50
+        median: 200
+        high: 500
+
+    d2c_brands:
+      cac:
+        low: 800
+        median: 2000
+        high: 5000
+        notes: "Higher for premium/luxury"
+      cpl:
+        low: 100
+        median: 400
+        high: 800
+
+    real_estate:
+      cac:
+        low: 50000
+        median: 150000
+        high: 500000
+        notes: "High ticket, long cycle"
+      cpl:
+        low: 5000
+        median: 20000
+        high: 50000
+
+    edtech:
+      cac:
+        low: 2000
+        median: 8000
+        high: 25000
+        notes: "Course value dependent"
+      cpl:
+        low: 200
+        median: 800
+        high: 2000
+
+    fintech:
+      cac:
+        low: 1000
+        median: 3500
+        high: 10000
+      cpl:
+        low: 100
+        median: 500
+        high: 1000
+
+    healthcare:
+      cac:
+        low: 2000
+        median: 10000
+        high: 50000
+      cpl:
+        low: 500
+        median: 2000
+        high: 10000
+
+# =============================================================================
+# EFFICIENCY RATIO BENCHMARKS
+# =============================================================================
+
+efficiency_ratios:
+  ltv_cac_ratio:
+    excellent: 5.0
+    healthy: 3.0
+    moderate: 2.0
+    critical: 1.5
+    interpretation:
+      above_5: "May be underinvesting in growth"
+      3_to_5: "Healthy unit economics"
+      2_to_3: "Needs attention, optimize CAC or improve retention"
+      below_2: "Unsustainable, losing money on acquisition"
+
+  roas:
+    by_channel:
+      paid_search_brand:
+        excellent: 10.0
+        good: 6.0
+        moderate: 3.0
+        poor: 1.5
+      paid_search_nonbrand:
+        excellent: 6.0
+        good: 4.0
+        moderate: 2.5
+        poor: 1.5
+      paid_social:
+        excellent: 5.0
+        good: 3.5
+        moderate: 2.0
+        poor: 1.0
+      display:
+        excellent: 3.0
+        good: 2.0
+        moderate: 1.5
+        poor: 0.8
+      retargeting:
+        excellent: 8.0
+        good: 5.0
+        moderate: 3.0
+        poor: 1.5
+
+  mer:
+    excellent: 8.0
+    healthy: 5.0
+    moderate: 3.0
+    critical: 2.0
+    notes: "Marketing Efficiency Ratio (blended ROAS)"
+
+  cac_payback_months:
+    excellent: 6
+    healthy: 12
+    moderate: 18
+    critical: 24
+    notes: "Months to recover CAC"
+
+# =============================================================================
+# CHANNEL PERFORMANCE BENCHMARKS
+# =============================================================================
+
+channel_benchmarks:
+  google_search:
+    ctr:
+      excellent: 8.0
+      good: 5.0
+      average: 3.0
+      poor: 1.5
+    cvr:
+      excellent: 10.0
+      good: 6.0
+      average: 3.5
+      poor: 1.5
+    cpc:
+      b2b_low: 50
+      b2b_high: 300
+      b2c_low: 10
+      b2c_high: 100
+    notes: "High intent, best for bottom-funnel"
+
+  google_display:
+    ctr:
+      excellent: 1.0
+      good: 0.6
+      average: 0.35
+      poor: 0.15
+    cvr:
+      excellent: 3.0
+      good: 1.5
+      average: 0.8
+      poor: 0.3
+    cpm:
+      low: 20
+      high: 150
+    notes: "Awareness focused, lower direct conversion"
+
+  meta_ads:
+    ctr:
+      excellent: 2.5
+      good: 1.5
+      average: 0.9
+      poor: 0.4
+    cvr:
+      excellent: 8.0
+      good: 4.0
+      average: 2.0
+      poor: 0.8
+    cpc:
+      low: 10
+      high: 150
+    notes: "Strong targeting, audience-based"
+
+  linkedin_ads:
+    ctr:
+      excellent: 1.0
+      good: 0.6
+      average: 0.35
+      poor: 0.15
+    cvr:
+      excellent: 6.0
+      good: 3.0
+      average: 1.5
+      poor: 0.5
+    cpc:
+      low: 100
+      high: 500
+    notes: "B2B focused, higher costs justified by audience quality"
+
+  email:
+    open_rate:
+      excellent: 35.0
+      good: 25.0
+      average: 18.0
+      poor: 10.0
+    click_rate:
+      excellent: 8.0
+      good: 4.0
+      average: 2.5
+      poor: 1.0
+    conversion_rate:
+      excellent: 6.0
+      good: 3.0
+      average: 1.5
+      poor: 0.5
+    notes: "Owned channel, high ROI when list quality is good"
+
+  organic_search:
+    cvr:
+      excellent: 5.0
+      good: 3.0
+      average: 2.0
+      poor: 0.8
+    notes: "High intent, long-term investment"
+
+# =============================================================================
+# FUNNEL CONVERSION BENCHMARKS
+# =============================================================================
+
+funnel_benchmarks:
+  b2b_saas:
+    visitor_to_lead:
+      excellent: 5.0
+      good: 3.0
+      average: 2.0
+      poor: 0.8
+    lead_to_mql:
+      excellent: 40.0
+      good: 25.0
+      average: 15.0
+      poor: 8.0
+    mql_to_sql:
+      excellent: 60.0
+      good: 40.0
+      average: 25.0
+      poor: 15.0
+    sql_to_opportunity:
+      excellent: 80.0
+      good: 60.0
+      average: 45.0
+      poor: 30.0
+    opportunity_to_close:
+      excellent: 40.0
+      good: 25.0
+      average: 18.0
+      poor: 10.0
+
+  ecommerce:
+    visitor_to_add_cart:
+      excellent: 12.0
+      good: 8.0
+      average: 5.0
+      poor: 2.5
+    add_cart_to_checkout:
+      excellent: 70.0
+      good: 55.0
+      average: 40.0
+      poor: 25.0
+    checkout_to_purchase:
+      excellent: 80.0
+      good: 65.0
+      average: 50.0
+      poor: 35.0
+    overall_conversion:
+      excellent: 5.0
+      good: 3.0
+      average: 2.0
+      poor: 1.0
+
+  d2c:
+    visitor_to_lead:
+      excellent: 8.0
+      good: 5.0
+      average: 3.0
+      poor: 1.5
+    lead_to_purchase:
+      excellent: 15.0
+      good: 8.0
+      average: 4.0
+      poor: 2.0
+    cart_abandonment:
+      excellent: 55.0  # Lower is better
+      average: 70.0
+      poor: 80.0
+
+# =============================================================================
+# ENGAGEMENT BENCHMARKS
+# =============================================================================
+
+engagement_benchmarks:
+  website:
+    bounce_rate:
+      excellent: 30.0  # Lower is better
+      good: 45.0
+      average: 55.0
+      poor: 70.0
+    avg_session_duration_seconds:
+      excellent: 240
+      good: 150
+      average: 90
+      poor: 45
+    pages_per_session:
+      excellent: 4.5
+      good: 3.0
+      average: 2.0
+      poor: 1.3
+
+  landing_page:
+    bounce_rate:
+      excellent: 35.0
+      good: 50.0
+      average: 60.0
+      poor: 75.0
+    time_on_page_seconds:
+      excellent: 180
+      good: 90
+      average: 45
+      poor: 20
+
+# =============================================================================
+# RESPONSE TIME BENCHMARKS
+# =============================================================================
+
+response_time:
+  lead_response:
+    optimal_minutes: 5
+    good_minutes: 15
+    acceptable_minutes: 60
+    poor_minutes: 240
+    impact:
+      under_5_min: "21x more likely to convert"
+      5_to_30_min: "Strong conversion likelihood"
+      over_60_min: "Significant conversion drop"
+
+  sales_cycle_days:
+    b2b_smb:
+      fast: 30
+      average: 60
+      long: 120
+    b2b_enterprise:
+      fast: 90
+      average: 180
+      long: 365
+    b2c:
+      fast: 1
+      average: 7
+      long: 30
+
+# =============================================================================
+# PERFORMANCE STATUS THRESHOLDS
+# =============================================================================
+
+status_thresholds:
+  excellent:
+    vs_benchmark: 1.20  # 20% above benchmark
+    description: "Significantly above benchmark"
+  strong:
+    vs_benchmark: 1.00  # At or above benchmark
+    description: "At or above benchmark"
+  moderate:
+    vs_benchmark: 0.85  # Up to 15% below
+    description: "Slightly below benchmark"
+  needs_attention:
+    vs_benchmark: 0.70  # 15-30% below
+    description: "Significantly below benchmark"
+  critical:
+    vs_benchmark: 0.0   # More than 30% below
+    description: "Critical - requires immediate action"
+
+# =============================================================================
+# TREND INTERPRETATION
+# =============================================================================
+
+trend_thresholds:
+  significant_improvement:
+    change_percent: 15
+    direction: "positive"
+  moderate_improvement:
+    change_percent: 5
+    direction: "positive"
+  stable:
+    change_percent: 5
+    direction: "either"
+  moderate_decline:
+    change_percent: -5
+    direction: "negative"
+  significant_decline:
+    change_percent: -15
+    direction: "negative"
+
+# =============================================================================
+# SEASONAL ADJUSTMENTS
+# =============================================================================
+
+seasonality:
+  ecommerce:
+    peak_months: [10, 11, 12]  # Oct-Dec (festive, year-end)
+    low_months: [1, 2, 6, 7]   # Post-festive, summer
+    adjustment_factor:
+      peak: 1.3
+      normal: 1.0
+      low: 0.75
+
+  b2b:
+    peak_months: [1, 3, 9, 10]  # Q1 budgets, Q3/Q4 planning
+    low_months: [7, 8, 12]      # Summer lull, holidays
+    adjustment_factor:
+      peak: 1.15
+      normal: 1.0
+      low: 0.85
+
+  real_estate:
+    peak_months: [10, 11, 12, 1, 2, 3]  # Post-monsoon to March
+    low_months: [6, 7, 8, 9]             # Monsoon
+    adjustment_factor:
+      peak: 1.25
+      normal: 1.0
+      low: 0.70

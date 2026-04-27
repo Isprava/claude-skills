@@ -1,0 +1,382 @@
+{
+  "description": "Sample marketing metrics data formats for testing the Marketing Insights Skill",
+  "examples": [
+    {
+      "name": "Basic Metrics Example",
+      "format": "simple",
+      "data": {
+        "period": "Feb 2025",
+        "metrics": {
+          "cac": 8333,
+          "cpl": 1250,
+          "ltv": 40000,
+          "roas": 4.8,
+          "ctr": 2.1,
+          "cvr": 15.0
+        },
+        "totals": {
+          "spend": 1500000,
+          "conversions": 180,
+          "revenue": 7200000
+        }
+      },
+      "input_text": "Feb 2025: CAC ₹8,333, CPL ₹1,250, LTV ₹40,000, ROAS 4.8x, CTR 2.1%, CVR 15%"
+    },
+    {
+      "name": "Period Comparison Example",
+      "format": "comparison",
+      "data": {
+        "current": {
+          "period": "Feb 2025",
+          "cac": 8333,
+          "cpl": 1250,
+          "ltv": 40000,
+          "roas": 4.8,
+          "spend": 1500000,
+          "conversions": 180,
+          "revenue": 7200000
+        },
+        "previous": {
+          "period": "Jan 2025",
+          "cac": 7500,
+          "cpl": 1100,
+          "ltv": 38000,
+          "roas": 5.2,
+          "spend": 1300000,
+          "conversions": 173,
+          "revenue": 6500000
+        }
+      },
+      "input_text": "Feb vs Jan 2025: CAC ₹8,333 vs ₹7,500 | CPL ₹1,250 vs ₹1,100 | LTV ₹40,000 vs ₹38,000 | ROAS 4.8x vs 5.2x"
+    },
+    {
+      "name": "Channel Breakdown Example",
+      "format": "by_channel",
+      "data": {
+        "period": "Feb 2025",
+        "channels": [
+          {
+            "name": "Google Ads",
+            "spend": 600000,
+            "impressions": 250000,
+            "clicks": 7500,
+            "conversions": 90,
+            "revenue": 3300000,
+            "cac": 6667,
+            "cpl": 800,
+            "roas": 5.5,
+            "ctr": 3.0,
+            "cvr": 18.0
+          },
+          {
+            "name": "Meta Ads",
+            "spend": 500000,
+            "impressions": 400000,
+            "clicks": 5000,
+            "conversions": 60,
+            "revenue": 2100000,
+            "cac": 8333,
+            "cpl": 1250,
+            "roas": 4.2,
+            "ctr": 1.25,
+            "cvr": 14.0
+          },
+          {
+            "name": "LinkedIn",
+            "spend": 400000,
+            "impressions": 80000,
+            "clicks": 400,
+            "conversions": 30,
+            "revenue": 1200000,
+            "cac": 13333,
+            "cpl": 4000,
+            "roas": 3.0,
+            "ctr": 0.5,
+            "cvr": 10.0
+          }
+        ],
+        "totals": {
+          "spend": 1500000,
+          "conversions": 180,
+          "revenue": 6600000,
+          "blended_cac": 8333,
+          "blended_roas": 4.4
+        }
+      },
+      "input_text": "Google Ads: Spend ₹6L, Conv 90, ROAS 5.5x | Meta: Spend ₹5L, Conv 60, ROAS 4.2x | LinkedIn: Spend ₹4L, Conv 30, ROAS 3.0x"
+    },
+    {
+      "name": "Full Funnel Example",
+      "format": "funnel",
+      "data": {
+        "period": "Feb 2025",
+        "funnel": {
+          "impressions": 500000,
+          "clicks": 15000,
+          "visitors": 14000,
+          "leads": 1200,
+          "mql": 360,
+          "sql": 108,
+          "opportunities": 65,
+          "conversions": 36
+        },
+        "conversion_rates": {
+          "ctr": 3.0,
+          "visitor_to_lead": 8.57,
+          "lead_to_mql": 30.0,
+          "mql_to_sql": 30.0,
+          "sql_to_opportunity": 60.2,
+          "opportunity_to_close": 55.4,
+          "overall": 0.24
+        },
+        "spend": 1500000,
+        "revenue": 5400000
+      },
+      "input_text": "Funnel: 500K impressions → 15K clicks → 1,200 leads → 360 MQL → 108 SQL → 65 Opportunities → 36 Wins"
+    },
+    {
+      "name": "E-commerce Example",
+      "format": "ecommerce",
+      "data": {
+        "period": "Feb 2025",
+        "metrics": {
+          "visitors": 150000,
+          "add_to_cart": 12000,
+          "checkouts_started": 6000,
+          "orders": 4200,
+          "revenue": 8400000,
+          "aov": 2000,
+          "cac": 357,
+          "cpl": 125,
+          "roas": 5.6
+        },
+        "spend": 1500000,
+        "leads_generated": 12000,
+        "conversion_rates": {
+          "visitor_to_cart": 8.0,
+          "cart_to_checkout": 50.0,
+          "checkout_to_purchase": 70.0,
+          "overall": 2.8
+        }
+      },
+      "input_text": "E-commerce Feb 2025: 150K visitors, 12K add-to-cart, 6K checkouts, 4,200 orders, ₹84L revenue, AOV ₹2,000, Spend ₹15L"
+    },
+    {
+      "name": "SaaS B2B Example",
+      "format": "saas",
+      "data": {
+        "period": "Feb 2025",
+        "acquisition": {
+          "leads": 450,
+          "mql": 135,
+          "sql": 54,
+          "demos": 40,
+          "trials": 28,
+          "conversions": 12
+        },
+        "spend": 2400000,
+        "revenue": {
+          "new_mrr": 360000,
+          "expansion_mrr": 45000,
+          "churned_mrr": 24000,
+          "net_new_mrr": 381000
+        },
+        "metrics": {
+          "cac": 200000,
+          "cpl": 5333,
+          "ltv": 1080000,
+          "ltv_cac_ratio": 5.4,
+          "payback_months": 6.6,
+          "arpu": 30000
+        }
+      },
+      "input_text": "SaaS Feb 2025: 450 leads → 135 MQL → 54 SQL → 12 customers | Spend ₹24L | CAC ₹2L | LTV ₹10.8L | MRR ₹3.6L new"
+    },
+    {
+      "name": "Multi-Period Trend Example",
+      "format": "trend",
+      "data": {
+        "periods": [
+          {
+            "month": "Dec 2024",
+            "cac": 7000,
+            "cpl": 950,
+            "ltv": 35000,
+            "roas": 5.5,
+            "conversions": 160
+          },
+          {
+            "month": "Jan 2025",
+            "cac": 7500,
+            "cpl": 1100,
+            "ltv": 38000,
+            "roas": 5.2,
+            "conversions": 173
+          },
+          {
+            "month": "Feb 2025",
+            "cac": 8333,
+            "cpl": 1250,
+            "ltv": 40000,
+            "roas": 4.8,
+            "conversions": 180
+          }
+        ],
+        "trends": {
+          "cac": "increasing",
+          "ltv": "increasing",
+          "roas": "decreasing",
+          "conversions": "increasing"
+        }
+      },
+      "input_text": "Dec-Feb Trend: CAC ₹7K→₹7.5K→₹8.3K | LTV ₹35K→₹38K→₹40K | ROAS 5.5x→5.2x→4.8x | Conv 160→173→180"
+    },
+    {
+      "name": "Campaign Performance Example",
+      "format": "campaign",
+      "data": {
+        "period": "Feb 2025",
+        "campaigns": [
+          {
+            "name": "Brand Search",
+            "type": "brand",
+            "spend": 200000,
+            "conversions": 45,
+            "revenue": 1800000,
+            "cac": 4444,
+            "roas": 9.0
+          },
+          {
+            "name": "Performance - Core Keywords",
+            "type": "performance",
+            "spend": 400000,
+            "conversions": 50,
+            "revenue": 2000000,
+            "cac": 8000,
+            "roas": 5.0
+          },
+          {
+            "name": "Retargeting",
+            "type": "retargeting",
+            "spend": 150000,
+            "conversions": 35,
+            "revenue": 1400000,
+            "cac": 4286,
+            "roas": 9.3
+          },
+          {
+            "name": "Prospecting - Lookalikes",
+            "type": "prospecting",
+            "spend": 350000,
+            "conversions": 30,
+            "revenue": 1200000,
+            "cac": 11667,
+            "roas": 3.4
+          },
+          {
+            "name": "Awareness Display",
+            "type": "awareness",
+            "spend": 200000,
+            "conversions": 10,
+            "revenue": 400000,
+            "cac": 20000,
+            "roas": 2.0
+          }
+        ]
+      },
+      "input_text": "Campaigns: Brand ₹2L/45conv/9x ROAS | Performance ₹4L/50conv/5x | Retargeting ₹1.5L/35conv/9.3x | Prospecting ₹3.5L/30conv/3.4x | Awareness ₹2L/10conv/2x"
+    },
+    {
+      "name": "Real Estate Example",
+      "format": "real_estate",
+      "data": {
+        "period": "Feb 2025",
+        "project": "Villa Serenity",
+        "funnel": {
+          "leads": 85,
+          "site_visits": 22,
+          "bookings": 8,
+          "registrations": 7,
+          "possessions": 2
+        },
+        "marketing": {
+          "total_spend": 1205000,
+          "channels": {
+            "digital": {
+              "spend": 630000,
+              "leads": 35,
+              "cpl": 18000
+            },
+            "events": {
+              "spend": 330000,
+              "leads": 15,
+              "cpl": 22000
+            },
+            "partners": {
+              "spend": 120000,
+              "leads": 10,
+              "cpl": 12000
+            },
+            "referral": {
+              "spend": 125000,
+              "leads": 25,
+              "cpl": 5000
+            }
+          }
+        },
+        "revenue": {
+          "avg_unit_price": 80000000,
+          "realized": 160000000,
+          "pipeline": 480000000
+        },
+        "metrics": {
+          "cpl": 14176,
+          "cost_per_booking": 150625,
+          "overall_conversion": 2.35,
+          "lead_to_visit": 25.9,
+          "visit_to_booking": 36.4
+        }
+      },
+      "input_text": "Villa Serenity Feb 2025: 85 leads, 22 site visits, 8 bookings, 2 sales | Spend ₹12.05L | CPL ₹14,176 | Revenue ₹1.6 Cr realized"
+    },
+    {
+      "name": "Minimal Input Example",
+      "format": "minimal",
+      "data": {
+        "cac": 5000,
+        "ltv": 25000
+      },
+      "input_text": "CAC: ₹5,000 | LTV: ₹25,000",
+      "expected_analysis": "Basic LTV:CAC ratio analysis with benchmark comparison"
+    }
+  ],
+  "input_variations": {
+    "currency_formats": [
+      "₹8,333",
+      "Rs. 8333",
+      "INR 8333",
+      "8333 rupees",
+      "8.3K",
+      "8.3L (lakhs)"
+    ],
+    "ratio_formats": [
+      "4.8x",
+      "4.8:1",
+      "480%",
+      "4.8 times"
+    ],
+    "percentage_formats": [
+      "15%",
+      "15 percent",
+      "0.15",
+      "15/100"
+    ],
+    "comparison_phrases": [
+      "vs",
+      "versus",
+      "compared to",
+      "from X to Y",
+      "current vs previous"
+    ]
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "version": "1.0",
+  "description": "Schema for marketing metrics input data",
+  "time_grain": ["day", "week", "month", "quarter"],
+  "periods_required": ["current"],
+  "periods_optional": ["previous", "same_period_last_year"],
+
+  "metric_categories": {
+    "acquisition": {
+      "metrics": ["cac", "cpl", "cpa", "cpc", "cpm"],
+      "unit": "currency",
+      "required": false,
+      "description": "Cost metrics for customer/lead acquisition"
+    },
+    "revenue": {
+      "metrics": ["ltv", "clv", "arpu", "aov", "revenue", "gmv"],
+      "unit": "currency",
+      "required": false,
+      "description": "Value and revenue metrics"
+    },
+    "efficiency": {
+      "metrics": ["roas", "roi", "mer", "ltv_cac_ratio", "cac_payback_months"],
+      "unit": "ratio_or_months",
+      "required": false,
+      "description": "Marketing efficiency and return metrics"
+    },
+    "engagement": {
+      "metrics": ["ctr", "cvr", "bounce_rate", "session_duration", "pages_per_session"],
+      "unit": "percentage_or_count",
+      "required": false,
+      "description": "User engagement metrics"
+    },
+    "funnel": {
+      "metrics": ["impressions", "clicks", "leads", "mql", "sql", "opportunities", "conversions", "wins"],
+      "unit": "count",
+      "required": false,
+      "description": "Funnel stage counts"
+    },
+    "spend": {
+      "metrics": ["total_spend", "channel_spend"],
+      "unit": "currency",
+      "required": false,
+      "description": "Marketing spend data"
+    }
+  },
+
+  "dimensions": {
+    "channel": {
+      "values": ["paid_search", "paid_social", "display", "email", "affiliate", "organic_search", "organic_social", "direct", "referral"],
+      "description": "Marketing channel breakdown"
+    },
+    "campaign_type": {
+      "values": ["brand", "performance", "retargeting", "awareness", "consideration", "conversion"],
+      "description": "Campaign objective type"
+    },
+    "platform": {
+      "values": ["google_ads", "meta_ads", "linkedin_ads", "twitter_ads", "tiktok_ads", "youtube_ads", "programmatic"],
+      "description": "Advertising platform"
+    },
+    "device": {
+      "values": ["desktop", "mobile", "tablet"],
+      "description": "Device type"
+    },
+    "geo": {
+      "values": "string",
+      "description": "Geographic region/country"
+    }
+  },
+
+  "required_fields": ["period"],
+  "minimum_metrics": 2,
+
+  "optional_fields": [
+    "channel",
+    "campaign",
+    "platform",
+    "device",
+    "geo",
+    "segment",
+    "cohort"
+  ],
+
+  "examples": {
+    "simple_metrics": {
+      "period": "current",
+      "cac": 8333,
+      "cpl": 1250,
+      "ltv": 40000,
+      "roas": 4.8
+    },
+    "with_channel_breakdown": {
+      "period": "current",
+      "channel": "paid_search",
+      "spend": 600000,
+      "conversions": 90,
+      "revenue": 3300000,
+      "cac": 6667,
+      "roas": 5.5
+    },
+    "funnel_data": {
+      "period": "current",
+      "impressions": 500000,
+      "clicks": 15000,
+      "leads": 2000,
+      "mql": 600,
+      "sql": 180,
+      "conversions": 36
+    },
+    "comparison_format": [
+      {
+        "period": "current",
+        "cac": 8333,
+        "cpl": 1250,
+        "ltv": 40000
+      },
+      {
+        "period": "previous",
+        "cac": 7500,
+        "cpl": 1100,
+        "ltv": 38000
+      }
+    ]
+  },
+
+  "input_formats_accepted": {
+    "text": "CAC: 8333, CPL: 1250, LTV: 40000, ROAS: 4.8x",
+    "comparison_text": "Feb vs Jan: CAC 8333 vs 7500, CPL 1250 vs 1100",
+    "channel_text": "Google: Spend 6L, Conv 90 | Meta: Spend 5L, Conv 60",
+    "json": "{\"cac\": 8333, \"cpl\": 1250, \"ltv\": 40000}",
+    "csv": "channel,spend,conversions,revenue\npaid_search,600000,90,3300000"
+  },
+
+  "currency": {
+    "default": "INR",
+    "symbol": "₹",
+    "supported": ["INR", "USD", "EUR", "GBP"]
+  },
+
+  "validation_rules": {
+    "cac": {"min": 0, "max": null, "type": "currency"},
+    "cpl": {"min": 0, "max": null, "type": "currency"},
+    "ltv": {"min": 0, "max": null, "type": "currency"},
+    "roas": {"min": 0, "max": null, "type": "ratio"},
+    "ctr": {"min": 0, "max": 100, "type": "percentage"},
+    "cvr": {"min": 0, "max": 100, "type": "percentage"},
+    "ltv_cac_ratio": {"min": 0, "max": null, "type": "ratio"}
+  }
+}
