@@ -1,77 +1,197 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "org-skills",
-  "displayName": "Organisation Skills Library",
   "description": "Organization-wide Claude Code skills organized by department: Technology, Marketing, Sales, Construction, Hospitality Operations, and Construction Operations.",
-  "author": "your-org",
-  "version": "1.0.0",
-  "license": "proprietary",
+  "owner": {
+    "name": "Isprava",
+    "email": "chetan.d.rane@gmail.com"
+  },
+  "metadata": {
+    "description": "Organization-wide Claude Code skills organized by department: Technology, Marketing, Sales, Construction, Hospitality Operations, and Construction Operations.",
+    "version": "1.0.0"
+  },
   "plugins": [
     {
-      "id": "technology",
-      "name": "Technology",
-      "description": "Engineering and technology skills: code review, incident response, architecture, and more.",
+      "name": "technology",
+      "description": "Engineering and technology skills: code review, incident response, ISP feature analysis, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["technology", "engineering", "code-review", "incident-response"],
+      "source": "./technology",
+      "strict": false,
       "skills": [
-        "technology/code-review",
-        "technology/incident-response",
-        "technology/isp_feature_analysis"
+        "./code-review",
+        "./incident-response",
+        "./isp_feature_analysis"
       ]
     },
     {
-      "id": "marketing",
-      "name": "Marketing",
+      "name": "marketing",
       "description": "Marketing skills: content strategy, campaign planning, brand voice, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["marketing", "content", "campaign", "brand"],
+      "source": "./marketing",
+      "strict": false,
       "skills": [
-        "marketing/content-strategy",
-        "marketing/campaign-planning"
+        "./content-strategy",
+        "./campaign-planning"
       ]
     },
     {
-      "id": "lohono-marketing",
-      "name": "Lohono Stays Marketing",
+      "name": "lohono-marketing",
       "description": "Brand-specific marketing skills for Lohono Stays: campaign briefs, guest personas, LinkedIn content, ad copy, brand content review, and campaign performance reporting.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["lohono", "marketing", "luxury", "hospitality", "brand"],
+      "source": "./marketing",
+      "strict": false,
       "skills": [
-        "marketing/lohono-brief",
-        "marketing/lohono-persona",
-        "marketing/lohono-linkedin",
-        "marketing/lohono-adcopy",
-        "marketing/lohono-review",
-        "marketing/lohono-report"
+        "./lohono-brief",
+        "./lohono-persona",
+        "./lohono-linkedin",
+        "./lohono-adcopy",
+        "./lohono-review",
+        "./lohono-report"
       ]
     },
     {
-      "id": "sales",
-      "name": "Sales",
+      "name": "sales",
       "description": "Sales skills: sales playbook, proposal writing, objection handling, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["sales", "proposal", "playbook", "business-development"],
+      "source": "./sales",
+      "strict": false,
       "skills": [
-        "sales/sales-playbook",
-        "sales/proposal-writing"
+        "./sales-playbook",
+        "./proposal-writing"
       ]
     },
     {
-      "id": "construction",
-      "name": "Construction",
+      "name": "construction",
       "description": "Construction project skills: project planning, safety compliance, cost estimation, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["construction", "project-planning", "safety", "compliance"],
+      "source": "./construction",
+      "strict": false,
       "skills": [
-        "construction/project-planning",
-        "construction/safety-compliance"
+        "./project-planning",
+        "./safety-compliance"
       ]
     },
     {
-      "id": "hospitality-operations",
-      "name": "Hospitality Operations",
+      "name": "hospitality-operations",
       "description": "Hospitality operations skills: guest experience, staff scheduling, service recovery, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["hospitality", "operations", "guest-experience", "staff-scheduling"],
+      "source": "./hospitality-operations",
+      "strict": false,
       "skills": [
-        "hospitality-operations/guest-experience",
-        "hospitality-operations/staff-scheduling"
+        "./guest-experience",
+        "./staff-scheduling"
       ]
     },
     {
-      "id": "construction-operations",
-      "name": "Construction Operations",
+      "name": "construction-operations",
       "description": "Construction site operations skills: site inspection, progress reporting, defect management, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["construction", "operations", "site-inspection", "progress-reporting"],
+      "source": "./construction-operations",
+      "strict": false,
       "skills": [
-        "construction-operations/site-inspection",
-        "construction-operations/progress-reporting"
+        "./site-inspection",
+        "./progress-reporting"
+      ]
+    },
+    {
+      "name": "hr",
+      "description": "HR and People skills: candidate screening, interview evaluation, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["hr", "hiring", "screening", "people-ops"],
+      "source": "./hr",
+      "strict": false,
+      "skills": [
+        "./candidate-screener"
+      ]
+    },
+    {
+      "name": "organisation",
+      "description": "Organisation-wide skills: interview evaluation, candidate assessment, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Isprava",
+        "url": "https://github.com/Isprava"
+      },
+      "homepage": "https://github.com/Isprava/claude-skills",
+      "repository": "https://github.com/Isprava/claude-skills",
+      "license": "proprietary",
+      "category": "productivity",
+      "keywords": ["organisation", "interview", "hiring", "people-ops"],
+      "source": "./organisation",
+      "strict": false,
+      "skills": [
+        "./interview-evaluator"
       ]
     }
   ]
