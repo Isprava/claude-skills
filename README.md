@@ -6,7 +6,7 @@ A collection of Claude Code skills organized by department. Each skill encodes d
 
 | Department | Skills | Description |
 |-----------|--------|-------------|
-| [Technology](#technology) | 2 | Engineering practices: code review, incident response |
+| [Technology](#technology) | 3 | Engineering practices: code review, incident response, ISP feature analysis |
 | [Marketing](#marketing) | 2 | Marketing frameworks: content strategy, campaign planning |
 | [Lohono Stays Marketing](#lohono-stays-marketing) | 6 | Brand-specific skills for Lohono Stays |
 | [Sales](#sales) | 2 | Sales methodology: sales playbook, proposal writing |
@@ -37,6 +37,15 @@ A structured framework for detecting, containing, resolving, and learning from p
 **Use when:** "production is down", "incident", "outage", "P1/P2 alert", "on-call", "post-mortem"
 
 **Covers:** Severity levels, communication templates, investigation, containment, post-mortem structure
+
+### `isp_feature_analysis`
+**Analyze PRD vs Figma and produce a complete implementation plan**
+
+A structured, interactive 9-phase workflow that compares a Product Requirements Document, Figma designs, and the current production UI against a real codebase — then produces a single Markdown deliverable covering gap analysis, implementation checklist, test cases, and technical specs.
+
+**Use when:** "analyze the PRD", "gaps between PRD and Figma", "implementation plan from this spec", "redesign analysis", "checklist for this feature", any combination of PRD + Figma + repo references
+
+**Covers:** Intake & confirmation, PRD requirement extraction, Figma inventory, current-state analysis, three-way gap analysis, implementation checklist, test cases (unit/integration/E2E/a11y/responsive/edge cases), technical specs
 
 ---
 
@@ -218,6 +227,55 @@ A framework for monthly progress reporting that covers programme status, cost, i
 
 ---
 
+## Using Skills in Claude Code
+
+Skills are loaded via Claude Code's plugin system. Two steps are required: register this repo as a marketplace, then enable the department plugin(s) you want.
+
+### Step 1 — Register the marketplace
+
+Add this repo as a known marketplace in `~/.claude/settings.json`:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "org-skills": {
+      "source": {
+        "source": "git",
+        "url": "file:///path/to/claude-skills"
+      }
+    }
+  }
+}
+```
+
+Replace `/path/to/claude-skills` with the absolute path to this repo on your machine (e.g. `/Users/yourname/Projects/claude-skills`).
+
+### Step 2 — Enable department plugin(s)
+
+Add the departments you want to `enabledPlugins` in the same file:
+
+```json
+{
+  "enabledPlugins": {
+    "technology@org-skills": true,
+    "marketing@org-skills": true,
+    "lohono-marketing@org-skills": true,
+    "sales@org-skills": true,
+    "construction@org-skills": true,
+    "hospitality-operations@org-skills": true,
+    "construction-operations@org-skills": true
+  }
+}
+```
+
+Enable only the departments relevant to your role — you don't need all of them.
+
+### Step 3 — Restart Claude Code
+
+Quit and reopen Claude Code (or reload the window in the IDE extension). The skills will appear in the available skill list and trigger automatically when you use their documented phrases.
+
+---
+
 ## Adding New Skills
 
 1. Copy `_templates/SKILL-TEMPLATE.md` to `{department}/{skill-name}/SKILL.md`
@@ -236,7 +294,8 @@ See `CLAUDE.md` for full authoring guidelines.
 claude-skills/
 ├── technology/
 │   ├── code-review/
-│   └── incident-response/
+│   ├── incident-response/
+│   └── isp_feature_analysis/
 ├── marketing/
 │   ├── content-strategy/
 │   ├── campaign-planning/

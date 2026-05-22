@@ -12,7 +12,8 @@
       "description": "Engineering and technology skills: code review, incident response, architecture, and more.",
       "skills": [
         "technology/code-review",
-        "technology/incident-response"
+        "technology/incident-response",
+        "technology/isp_feature_analysis"
       ]
     },
     {
