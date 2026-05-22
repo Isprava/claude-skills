@@ -1,13 +1,13 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "org-skills",
-  "description": "Organization-wide Claude Code skills organized by department: Technology, Marketing, Sales, Construction, Hospitality Operations, and Construction Operations.",
+  "name": "isprava-skills",
+  "description": "Isprava Skills — Claude Code skills organized by department: Technology, Marketing, Sales, Construction, Hospitality Operations, and Construction Operations.",
   "owner": {
     "name": "Isprava",
     "email": "chetan.d.rane@gmail.com"
   },
   "metadata": {
-    "description": "Organization-wide Claude Code skills organized by department: Technology, Marketing, Sales, Construction, Hospitality Operations, and Construction Operations.",
+    "description": "Isprava Skills — Claude Code skills organized by department: Technology, Marketing, Sales, Construction, Hospitality Operations, and Construction Operations.",
     "version": "1.0.0"
   },
   "plugins": [
