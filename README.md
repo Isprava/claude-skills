@@ -233,7 +233,22 @@ Skills are loaded via Claude Code's plugin system. Two steps are required: regis
 
 ### Step 1 — Register the marketplace
 
-Add this repo as a known marketplace in `~/.claude/settings.json`:
+Add this repo as a known marketplace in `~/.claude/settings.json`. Use the GitHub source — no local clone needed:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "org-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Isprava/claude-skills"
+      }
+    }
+  }
+}
+```
+
+If you prefer to point at a local clone instead (e.g. for testing unpublished changes), use a `git` source with a `file://` URL:
 
 ```json
 {
@@ -247,8 +262,6 @@ Add this repo as a known marketplace in `~/.claude/settings.json`:
   }
 }
 ```
-
-Replace `/path/to/claude-skills` with the absolute path to this repo on your machine (e.g. `/Users/yourname/Projects/claude-skills`).
 
 ### Step 2 — Enable department plugin(s)
 
