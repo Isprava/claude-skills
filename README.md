@@ -274,6 +274,22 @@ Enable only the departments relevant to your role — you don't need all of them
 
 Quit and reopen Claude Code (or reload the window in the IDE extension). The skills will appear in the available skill list and trigger automatically when you use their documented phrases.
 
+### How to use a skill
+
+There are two ways to invoke a skill:
+
+**Automatic** — just describe what you want in plain language. If your message matches a skill's trigger phrases, Claude will invoke it automatically. For example:
+
+> "Analyze the gaps between this PRD and the Figma designs"
+
+triggers `isp_feature_analysis` without any special syntax.
+
+**Explicit** — type `/` followed by the skill name to invoke it directly:
+
+> `/isp_feature_analysis`
+
+Use the explicit form when you want a specific skill regardless of what you type, or when you want to see a skill's options before starting.
+
 ---
 
 ## Adding New Skills
