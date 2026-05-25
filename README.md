@@ -6,7 +6,7 @@ A collection of Claude Code skills organized by department. Each skill encodes d
 
 | Department | Skills | Description |
 |-----------|--------|-------------|
-| [Technology](#technology) | 14 | Engineering practices: code review, incident response, ISP feature analysis suite (10 phase skills), gap audit |
+| [Technology](#technology) | 15 | Engineering practices: code review, incident response, ISP feature analysis suite (10 phase skills), gap audit, PRD builder |
 | [Marketing](#marketing) | 2 | Marketing frameworks: content strategy, campaign planning |
 | [Lohono Stays Marketing](#lohono-stays-marketing) | 6 | Brand-specific skills for Lohono Stays |
 | [Sales](#sales) | 2 | Sales methodology: sales playbook, proposal writing |
@@ -46,6 +46,17 @@ A structured, interactive 9-phase workflow that compares a Product Requirements 
 **Use when:** "analyze the PRD", "gaps between PRD and Figma", "implementation plan from this spec", "redesign analysis", "checklist for this feature", any combination of PRD + Figma + repo references
 
 **Covers:** Intake & confirmation, PRD requirement extraction, Figma inventory, current-state analysis, three-way gap analysis, implementation checklist, test cases (unit/integration/E2E/a11y/responsive/edge cases), technical specs
+
+### `isp_prd_builder`
+**Turn a single-line idea into a comprehensive PRD through interactive dialogue**
+
+Five rounds of targeted questions — problem context, user roles, existing vs. new behaviour, scope, and acceptance criteria — followed by automated PRD generation and a 5-pass completeness review. Covers existing functionality, proposed changes, user roles, acceptance criteria, scope, out of scope, impacted areas, dependencies, analytics, and open questions.
+
+**Use when:** "write a PRD for", "create a spec for", "I want to build X", "draft requirements for", "turn this idea into a PRD", or any single-line feature description
+
+**Covers:** Problem statement, goals/non-goals, user roles, existing functionality, proposed changes (what changes / stays / is removed), functional requirements, NFRs, user stories, acceptance criteria, scope, out of scope, impacted areas, upstream/downstream dependencies, analytics, open questions
+
+---
 
 ### `isp_gap_audit`
 **Audit gaps and ambiguities between a PRD, Figma, and the actual codebase**

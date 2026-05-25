@@ -31,6 +31,7 @@
         "./incident-response",
         "./isp_feature_analysis",
         "./isp_gap_audit",
+        "./isp_prd_builder",
         "./isp_intake",
         "./isp_prd_analysis",
         "./isp_figma_analysis",
