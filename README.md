@@ -6,7 +6,7 @@ A collection of Claude Code skills organized by department. Each skill encodes d
 
 | Department | Skills | Description |
 |-----------|--------|-------------|
-| [Technology](#technology) | 4 | Engineering practices: code review, incident response, ISP feature analysis, gap audit |
+| [Technology](#technology) | 14 | Engineering practices: code review, incident response, ISP feature analysis suite (10 phase skills), gap audit |
 | [Marketing](#marketing) | 2 | Marketing frameworks: content strategy, campaign planning |
 | [Lohono Stays Marketing](#lohono-stays-marketing) | 6 | Brand-specific skills for Lohono Stays |
 | [Sales](#sales) | 2 | Sales methodology: sales playbook, proposal writing |
@@ -57,6 +57,27 @@ A focused, iterative gap audit across two axes — PRD ↔ Code and PRD ↔ Figm
 **Inputs:** repository name/path, PRD path, Figma path or frames
 
 **Covers:** PRD requirement extraction, code vs PRD comparison, Figma vs PRD comparison, five-pass self-critique loop, convergence scoring (1–5/5), ambiguity register, confidence-ranked final gap register
+
+---
+
+### ISP Feature Analysis — Individual Phase Skills
+
+Each phase of `isp_feature_analysis` is also available as a standalone skill with its own 5-pass convergence scoring. Use them independently or chain them in sequence.
+
+| Skill | Phase | What it does |
+|-------|-------|-------------|
+| `isp_intake` | 1 | Gather and validate all inputs across 5 passes; surface missing or conflicting fields before analysis begins |
+| `isp_prd_analysis` | 2 | Extract and classify every PRD requirement across 5 independent reads; score each by convergence |
+| `isp_figma_analysis` | 3 | Catalogue all components, states, breakpoints, and interactions from Figma across 5 inspection passes |
+| `isp_current_state` | 4 | Classify every existing UI component (Keep/Modify/Replace/Remove/New) across 5 passes; flag regression risks |
+| `isp_gap_analysis` | 5 | Three-way PRD ↔ Figma ↔ Current comparison across 5 passes; confidence-ranked gap table with owner assignment |
+| `isp_checklist` | 6 | Generate atomic developer checklist from gaps across 5 passes; each item traced to a GAP-ID and complexity-tiered |
+| `isp_test_cases` | 7 | Generate unit/integration/E2E/visual/responsive/a11y/edge test cases across 5 passes; coverage matrix vs. requirements |
+| `isp_tech_specs` | 8 | Produce file-level changes, component hierarchy, API contracts, and state management specs grounded in the real repo across 5 passes |
+| `isp_effort_estimate` | 9 | Three-mode estimates (Unsupervised AI / Supervised AI / Manual) across 5 passes with varied assumptions; converged range + confidence rating |
+| `isp_deliverable` | 10 | Assemble all phase outputs into one Markdown document; 5-pass completeness and cross-reference verification |
+
+**Chaining example:** `isp_intake` → `isp_prd_analysis` → `isp_figma_analysis` → `isp_current_state` → `isp_gap_analysis` → `isp_checklist` → `isp_test_cases` → `isp_tech_specs` → `isp_effort_estimate` → `isp_deliverable`
 
 ---
 

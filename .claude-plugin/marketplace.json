@@ -30,7 +30,17 @@
         "./code-review",
         "./incident-response",
         "./isp_feature_analysis",
-        "./isp_gap_audit"
+        "./isp_gap_audit",
+        "./isp_intake",
+        "./isp_prd_analysis",
+        "./isp_figma_analysis",
+        "./isp_current_state",
+        "./isp_gap_analysis",
+        "./isp_checklist",
+        "./isp_test_cases",
+        "./isp_tech_specs",
+        "./isp_effort_estimate",
+        "./isp_deliverable"
       ]
     },
     {
