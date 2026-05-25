@@ -4,7 +4,7 @@ description: Run a structured, interactive gap analysis between a Product Requir
 license: proprietary
 metadata:
   author: your-org
-  version: "1.1.0"
+  version: "1.2.0"
   department: technology
 ---
 
@@ -92,9 +92,15 @@ For each provided current-state reference (desktop, responsive, etc.):
 
 Skip this phase if no current-state references were provided, but flag it as a recommended follow-up.
 
-### Phase 5 — Gap analysis (three-way comparison)
+### Phase 5 — Gap analysis (three-way comparison) with convergence scoring
 
-This is the core deliverable. Produce a table:
+This is the core deliverable. It runs in two stages: an initial pass to generate the gap draft, then four more independent passes to stress-test every finding. Only findings that survive self-critique and re-emerge consistently across passes are reported as high-confidence.
+
+---
+
+#### Stage 5a — Pass 0 (initial draft)
+
+Read all source material (PRD, Figma, current state) and produce a draft gap table:
 
 | # | Requirement / Element | PRD | Figma | Current | Gap Type | Severity | Owner | Notes |
 |---|----------------------|-----|-------|---------|----------|----------|-------|-------|
@@ -102,6 +108,59 @@ This is the core deliverable. Produce a table:
 - **Gap Type:** `Missing-in-PRD`, `Missing-in-Figma`, `Missing-in-Current`, `Conflict`, `Ambiguous`, `Out-of-Scope`, `Regression-Risk`
 - **Severity:** `Blocker` / `High` / `Medium` / `Low`
 - **Owner:** `Product`, `Design`, `Engineering`, `QA` — who needs to resolve it
+
+Store this as **Draft 0**. Do not present it to the user yet.
+
+---
+
+#### Stage 5b — Four additional passes (passes 1–4)
+
+For each pass:
+
+1. **Re-read** the source material independently — do not reference the previous draft while generating findings.
+2. **Generate** a fresh finding list from scratch.
+3. **Compare** each new finding against the current draft:
+   - Finding matches a draft entry → mark it **confirmed** for this pass.
+   - Finding is new → add it as **emerging**.
+   - Draft entry absent this pass → mark it **challenged**.
+4. **Critique** each confirmed finding by asking:
+   - Could this be an intentional product decision not documented in the PRD?
+   - Does another section of the PRD, Figma, or codebase resolve this?
+   - Is this the PRD being ambiguous, or the implementation being wrong? (Keep these separate.)
+   - Would the PM who wrote this PRD recognize it as a gap?
+   - Would the engineer who built this recognize it as a discrepancy?
+5. Update the **convergence tally** after each pass.
+
+#### Convergence tally
+
+| Finding # | Pass 1 | Pass 2 | Pass 3 | Pass 4 | Score | Confidence |
+|-----------|--------|--------|--------|--------|-------|------------|
+| GAP-01 | ✓ | ✓ | ✓ | ✓ | 5/5 | High |
+| GAP-03 | ✓ | ✗ | ✓ | ✗ | 3/5 | Medium |
+| GAP-07 | ✗ | ✗ | ✓ | ✗ | 2/5 | Low |
+
+**Confidence thresholds:**
+
+| Score | Confidence | Action |
+|-------|------------|--------|
+| 5/5 | **High** | Include in main gap table |
+| 4/5 | **High** | Include in main gap table; note the one miss |
+| 3/5 | **Medium** | Include with a `⚠ needs verification` flag |
+| 2/5 | **Low** | Move to appendix as "potential noise" |
+| 1/5 | **Noise** | Discard |
+
+---
+
+#### Stage 5c — Final gap table (confidence ≥ 3/5 only)
+
+Present only Medium and High confidence findings. Add a **Score** column:
+
+| # | Requirement / Element | PRD | Figma | Current | Gap Type | Severity | Score | Owner | Notes |
+|---|----------------------|-----|-------|---------|----------|----------|-------|-------|-------|
+
+Append a **Low-confidence appendix** (score 2/5) as a collapsed section for human review.
+
+---
 
 Follow the table with an **Open Questions** section — one bullet per ambiguity, phrased as a direct question to the right owner.
 
