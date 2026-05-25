@@ -29,7 +29,8 @@
       "skills": [
         "./code-review",
         "./incident-response",
-        "./isp_feature_analysis"
+        "./isp_feature_analysis",
+        "./isp_gap_audit"
       ]
     },
     {

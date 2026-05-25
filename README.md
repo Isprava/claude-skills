@@ -6,7 +6,7 @@ A collection of Claude Code skills organized by department. Each skill encodes d
 
 | Department | Skills | Description |
 |-----------|--------|-------------|
-| [Technology](#technology) | 3 | Engineering practices: code review, incident response, ISP feature analysis |
+| [Technology](#technology) | 4 | Engineering practices: code review, incident response, ISP feature analysis, gap audit |
 | [Marketing](#marketing) | 2 | Marketing frameworks: content strategy, campaign planning |
 | [Lohono Stays Marketing](#lohono-stays-marketing) | 6 | Brand-specific skills for Lohono Stays |
 | [Sales](#sales) | 2 | Sales methodology: sales playbook, proposal writing |
@@ -46,6 +46,17 @@ A structured, interactive 9-phase workflow that compares a Product Requirements 
 **Use when:** "analyze the PRD", "gaps between PRD and Figma", "implementation plan from this spec", "redesign analysis", "checklist for this feature", any combination of PRD + Figma + repo references
 
 **Covers:** Intake & confirmation, PRD requirement extraction, Figma inventory, current-state analysis, three-way gap analysis, implementation checklist, test cases (unit/integration/E2E/a11y/responsive/edge cases), technical specs
+
+### `isp_gap_audit`
+**Audit gaps and ambiguities between a PRD, Figma, and the actual codebase**
+
+A focused, iterative gap audit across two axes — PRD ↔ Code and PRD ↔ Figma — that stress-tests every finding through five independent passes. Only gaps that survive self-critique and re-emerge consistently are reported as high-confidence. Produces a ranked, confidence-scored gap register with clear owner assignment.
+
+**Use when:** "find gaps", "what's ambiguous in this PRD", "does the code match the spec", "audit PRD against Figma", "verify implementation against requirements", any pairing of PRD + code or PRD + Figma that asks for discrepancies or missing pieces
+
+**Inputs:** repository name/path, PRD path, Figma path or frames
+
+**Covers:** PRD requirement extraction, code vs PRD comparison, Figma vs PRD comparison, five-pass self-critique loop, convergence scoring (1–5/5), ambiguity register, confidence-ranked final gap register
 
 ---
 
