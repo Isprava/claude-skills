@@ -356,6 +356,55 @@ Ask: "Does this PRD reflect what you had in mind? Would you like to adjust any s
 
 ---
 
+## Feature context save
+
+After confirming the PRD with the user, save a compact context file so downstream skills (tech specs, test cases) can pick up this work without re-briefing.
+
+**Derive the feature slug** from the PRD filename: lowercase, hyphens for spaces.
+`whatsapp_booking_confirmation_prd.md` → `whatsapp-booking-confirmation`
+
+Write to `team-memory/features/<feature-slug>/prd-context.md`:
+
+```markdown
+---
+feature: <feature-slug>
+skill: isp_prd_builder
+date: <today>
+output_file: <feature>_prd.md
+---
+
+## Problem statement
+[One sentence from Section 2 — the core problem this feature solves]
+
+## User roles
+[Bullet per role: **Role name** — one-line description of what they need]
+
+## In scope
+[Bullet list from Section 11 — In Scope]
+
+## Out of scope
+[Bullet list from Section 11 — Out of Scope]
+
+## Must requirements
+[REQ-ID — one-line description, for all Must-priority items from Section 7]
+
+## Key acceptance criteria
+[AC-ID — criterion, for all P1 items from Section 10]
+
+## Open questions
+[All unresolved items from Section 15 — question, owner, impact of leaving unresolved]
+
+## Impacted areas
+[High-severity rows from Section 12 — area, type of impact, owner]
+
+## Upstream dependencies
+[Blocking items from Section 13 — what must exist before this ships]
+```
+
+Then confirm: `Feature context saved → team-memory/features/<feature-slug>/prd-context.md`
+
+---
+
 ## Interaction rules
 
 - **Ask at most 3 questions per round.** More than three questions in one message causes decision fatigue.

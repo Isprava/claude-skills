@@ -17,6 +17,24 @@ This skill produces technical specifications grounded in the actual repository a
 
 ---
 
+## Feature context load
+
+Before reading the repository or generating any specs, check for existing feature context.
+
+1. Ask the user: "What is the feature name or slug? I'll check for existing PRD and analysis context."
+   - If the user provides a PRD filename, derive the slug: lowercase, hyphens for spaces.
+2. Check `team-memory/features/<feature-slug>/` for existing context files:
+   - **`prd-context.md`** — load: problem statement, user roles, scope (in/out), Must requirements, open questions, impacted areas, upstream dependencies.
+   - **`checklist-context.md`** — load: CL items, complexity tiers, items flagged for review.
+   - Any other phase context files present — load and note their phase.
+3. Apply loaded context:
+   - Do not ask about scope, roles, or requirements already captured in `prd-context.md`.
+   - Use the PRD's open questions to flag `⚠ architectural decision needed` items in the spec.
+   - Use PRD's impacted areas to ensure the file-level change list covers all affected components.
+4. If no context files exist: proceed without them; note that upstream context is missing and the user may want to run `isp_prd_builder` first.
+
+---
+
 ## Spec domains
 
 | Domain | What to specify |
@@ -136,6 +154,46 @@ For spec items where passes **disagree on the approach** (not just presence), re
 ### Architectural decision appendix (score 2/5)
 
 Spec items where passes proposed different approaches. These need a team decision before implementation. Present both options with trade-offs.
+
+---
+
+## Feature context save
+
+After producing the verified spec document, save a context summary for downstream skills (test cases, effort estimation).
+
+Write to `team-memory/features/<feature-slug>/tech-specs-context.md`:
+
+```markdown
+---
+feature: <feature-slug>
+skill: isp_tech_specs
+date: <today>
+output_file: <feature>_tech_specs.md
+---
+
+## Architecture decisions
+[Bullet per decision: what was chosen and why — pattern, library, approach]
+
+## New files
+[SPEC-F items with Change=New — path + one-line purpose]
+
+## Modified files
+[SPEC-F items with Change=Modify — path + what changes]
+
+## API contracts
+[SPEC-A items — METHOD /endpoint — brief description of what it does]
+
+## Breaking changes
+[SPEC-M items flagged Breaking=Yes — what breaks and what the migration requires]
+
+## Risks flagged
+[SPEC-R items with High likelihood or High impact — risk + mitigation]
+
+## Architectural decisions still open
+[Items flagged ⚠ architectural decision needed — both options and the trade-off]
+```
+
+Then confirm: `Tech spec context saved → team-memory/features/<feature-slug>/tech-specs-context.md`
 
 ---
 

@@ -17,6 +17,26 @@ This skill generates test cases from the verified gap register and checklist acr
 
 ---
 
+## Feature context load
+
+Before generating any test cases, check for existing feature context accumulated by upstream skills.
+
+1. Ask the user: "What is the feature name or slug? I'll load context from the PRD and tech spec phases."
+   - Derive the slug from any filename the user provides.
+2. Check `team-memory/features/<feature-slug>/` for existing context files:
+   - **`prd-context.md`** — load: user roles, Must requirements, acceptance criteria, scope, open questions, impacted areas. Use the REQ register here if no separate `isp_prd_analysis` output is provided.
+   - **`tech-specs-context.md`** — load: API contracts (each needs integration tests), breaking changes (each needs a regression test), risks (each needs an edge case test), new files (each needs unit tests).
+   - **`checklist-context.md`** — load: CL items and complexity tiers to ensure test coverage matches implementation scope.
+3. Apply loaded context:
+   - For every Must requirement in `prd-context.md` — ensure at least one test case links to it.
+   - For every breaking change in `tech-specs-context.md` — ensure at least one regression test exists.
+   - For every High-risk item in `tech-specs-context.md` — ensure at least one edge case test exists.
+   - For every API contract in `tech-specs-context.md` — ensure at least one integration test exists.
+   - Do not ask about scope, roles, or requirements already captured in loaded context.
+4. If no context files exist: proceed with what the user provides directly; note that upstream context is missing.
+
+---
+
 ## Test types to cover
 
 | Type | What to test |
@@ -129,6 +149,43 @@ Uncovered requirements: N (see coverage matrix)
 ### Edge case appendix (score 2/5)
 
 Test cases seen in some passes — may represent valuable edge case coverage. Include for team review.
+
+---
+
+## Feature context save
+
+After producing the verified test suite, save a context summary for downstream skills (deliverable, retrospectives).
+
+Write to `team-memory/features/<feature-slug>/test-cases-context.md`:
+
+```markdown
+---
+feature: <feature-slug>
+skill: isp_test_cases
+date: <today>
+output_file: <feature>_test_cases.md
+---
+
+## Coverage summary
+Total: N | Unit: N | Integration: N | E2E: N | Visual: N | Responsive: N | A11y: N | Edge: N
+
+## Uncovered requirements
+[REQ-IDs with no linked test case — with note on whether the team decided to skip or left unresolved]
+
+## Regression risks covered
+[TC items explicitly covering components flagged Regression-Risk in upstream context]
+
+## High-priority edge cases
+[TC-X items with P1 Must priority — title + expected result]
+
+## Accessibility gaps
+[Any accessibility requirement with no corresponding TC-A item]
+
+## Open questions inherited from upstream
+[Questions from prd-context.md or tech-specs-context.md that affected test design — and how they were handled]
+```
+
+Then confirm: `Test case context saved → team-memory/features/<feature-slug>/test-cases-context.md`
 
 ---
 

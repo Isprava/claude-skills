@@ -96,3 +96,61 @@ Commit directly to main. Use conventional commit messages:
 - `feat(technology): add incident-response skill`
 - `fix(sales): correct qualification framework`
 - `docs: update README catalog`
+
+## Team Memory
+
+The `team-memory/` directory holds shared knowledge that persists across sessions and team members. It is version-controlled and shared via git — any team member who pushes a memory entry makes it available to the whole team on their next `git pull`.
+
+**At the start of every session:**
+1. Read `team-memory/MEMORY.md`.
+2. Load any files listed there that are relevant to the current task.
+3. Apply the loaded knowledge throughout the session without being asked.
+
+**Memory types:**
+
+| Folder | Type | What it contains |
+|--------|------|-----------------|
+| `team-memory/feedback/` | Feedback | Prompting patterns that work or don't — apply these proactively |
+| `team-memory/project/` | Project | Active decisions, constraints, initiatives — use to inform suggestions |
+| `team-memory/reference/` | Reference | Where things live externally — check before asking the user |
+| `team-memory/domain/` | Domain | Isprava-specific terms and rules — apply these definitions always |
+
+**When to save a new memory:**
+- A pattern that surprised you or contradicts a default assumption
+- A decision whose *why* is not in the code or git history
+- A term that means something specific at Isprava
+- A pointer to an external resource that Claude would otherwise have to ask about
+
+See `team-memory/CONTRIBUTING.md` for how to add, update, or remove entries.
+
+## Feature Context Chain
+
+When a skill produces a deliverable for a named feature (PRD, spec document, test suite, etc.), it must save a compact context file so downstream skills can pick up where it left off — without the user needing to re-brief the next team.
+
+### Protocol for every isp_ skill
+
+**On start:**
+1. Determine the feature slug (derive from the output filename the user provides, or ask once: "What is the feature name or slug for this work?").
+2. Check `team-memory/features/<feature-slug>/` for any existing context files.
+3. If context files exist — load them and apply throughout the session. Do not ask about scope, roles, requirements, or decisions already captured there.
+
+**On completion:**
+1. After writing the main deliverable file, extract a compact context summary.
+2. Write it to `team-memory/features/<feature-slug>/<phase>-context.md` using the template at `team-memory/features/_TEMPLATE.md`.
+3. Confirm to the user: `Feature context saved → team-memory/features/<feature-slug>/<phase>-context.md`
+
+### What each phase saves
+
+| Skill | Context file | What to capture |
+|-------|-------------|-----------------|
+| `isp_prd_builder` | `prd-context.md` | Problem statement, user roles, scope (in/out), Must requirements, open questions, impacted areas |
+| `isp_tech_specs` | `tech-specs-context.md` | Architecture decisions, new/modified files, API contracts, breaking changes, risks |
+| `isp_test_cases` | `test-cases-context.md` | Coverage summary, uncovered requirements, regression risks tested, accessibility gaps |
+| `isp_checklist` | `checklist-context.md` | CL item count by tier, high-complexity items, items flagged for team review |
+| `isp_effort_estimate` | `effort-context.md` | Effort ranges by mode, key assumptions, high-uncertainty items |
+| `isp_deliverable` | — | Reads all; does not save a new context file |
+
+### Feature slug convention
+
+Lowercase the feature name, replace spaces with hyphens.
+`WhatsApp booking confirmation` → `whatsapp-booking-confirmation`
