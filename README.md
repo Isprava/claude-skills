@@ -71,6 +71,19 @@ A focused, iterative gap audit across two axes — PRD ↔ Code and PRD ↔ Figm
 
 ---
 
+### `isp_central_ui`
+**Audit a UI against the Isprava Central design language and enterprise standards**
+
+A two-pass design-system reviewer: Pass 1 audits a PNG screenshot value-by-value against the Isprava Central spec (colors, typography, component patterns, spacing); Pass 2 cross-checks the live route or repo source to confirm spec values are driven by tokens/styling hooks rather than hard-coded literals. Scores 10 dimensions, reports every color/type drift, computes WCAG 2.1/2.2 AA contrast ratios for all text and UI pairs, supplies compliant replacement colors that preserve brand intent, and produces a prioritized P0→P2 fix list.
+
+**Use when:** "audit the UI", "check design compliance", "does this match Isprava Central", "review the design system", "contrast check", "design token audit", or any request pairing a screenshot/route with design system validation
+
+**Inputs:** PNG screenshot (attached), source route or repo path
+
+**Covers:** Color fidelity (brand, surface, text, semantic, borders), typography (Inter, sizes, weights, hierarchy), component patterns (sidebar, top bar, filter bar, data table, pagination), tokenization & theming, spacing/layout grid, component states (rest/hover/focus/disabled), elevation & motion, WCAG AA accessibility with compliant replacement colors, iconography, overall consistency
+
+---
+
 ### ISP Feature Analysis — Individual Phase Skills
 
 Each phase of `isp_feature_analysis` is also available as a standalone skill with its own 5-pass convergence scoring. Use them independently or chain them in sequence.

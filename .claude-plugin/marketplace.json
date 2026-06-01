@@ -41,7 +41,8 @@
         "./isp_test_cases",
         "./isp_tech_specs",
         "./isp_effort_estimate",
-        "./isp_deliverable"
+        "./isp_deliverable",
+        "./isp_central_ui"
       ]
     },
     {
