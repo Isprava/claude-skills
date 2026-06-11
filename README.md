@@ -84,6 +84,19 @@ A two-pass design-system reviewer: Pass 1 audits a PNG screenshot value-by-value
 
 ---
 
+### `isp_enterprise_ui`
+**Audit and upgrade enterprise SSR UI components to production-ready standards**
+
+Five-pass convergence audit across SSR compatibility, component architecture (Server vs Client Components), Isprava Central design token compliance, Core Web Vitals performance, and WCAG 2.1/2.2 AA accessibility. Produces a convergence-scored finding table, a prioritized P0→P2 upgrade plan with `file:line` citations, a file-level change list, and concrete SSR remediation code patterns. Integrates with the Feature Context Chain (loads PRD + tech-spec context, saves `enterprise-ui-context.md`).
+
+**Use when:** "upgrade the UI to SSR", "fix hydration mismatch", "enterprise UI upgrade", "make this SSR-safe", "server component migration", "Next.js app router migration", or any request to bring UI components to enterprise-grade standards
+
+**Inputs:** target component path or route, feature slug (for context chain)
+
+**Covers:** SSR safety (window/document guards, client-only library isolation, hydration mismatch detection), RSC architecture (Server vs Client directive placement, component boundary splitting, Suspense/Error boundaries), Isprava Central token compliance, Core Web Vitals (LCP, CLS, INP, bundle size, dynamic imports), WCAG AA accessibility (contrast, focus, ARIA, semantic HTML)
+
+---
+
 ### ISP Feature Analysis — Individual Phase Skills
 
 Each phase of `isp_feature_analysis` is also available as a standalone skill with its own 5-pass convergence scoring. Use them independently or chain them in sequence.
