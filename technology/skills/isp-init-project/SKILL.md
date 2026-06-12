@@ -1,10 +1,10 @@
 ---
 name: isp-init-project
-description: 'Mandatory governance standards for generating prototypes and proof-of-concepts. When active, all generated code, UI, and implementation decisions must comply — frontend-only, mock-data, Cosmos Terra Refined design system, dark mode, sharp edges. Use when the user mentions "build a prototype", "init a project", "scaffold a POC", "proof of concept", "Cosmos prototype", "high-fidelity mockup", "frontend-only demo", or starts a new prototype/screen. Also trigger whenever generating standalone browser prototypes that must follow the organisation design language.'
+description: 'Mandatory governance standards for generating prototypes and proof-of-concepts. When active, all generated code, UI, and implementation decisions must comply — frontend-only, mock-data, Cosmos Terra Refined design system, light mode, sharp edges. Use when the user mentions "build a prototype", "init a project", "scaffold a POC", "proof of concept", "Cosmos prototype", "high-fidelity mockup", "frontend-only demo", or starts a new prototype/screen. Also trigger whenever generating standalone browser prototypes that must follow the organisation design language.'
 license: proprietary
 metadata:
   author: isprava
-  version: "1.0.0"
+  version: "1.1.0"
   department: technology
 ---
 
@@ -64,10 +64,10 @@ const users = [
 **Core concept:** All generated interfaces must strictly follow the **Cosmos Terra Refined Design System** provided by the organisation.
 
 **Mandatory requirements:**
-- Default to **dark mode**.
+- Default to **light mode**. (Dark mode is available only when the user explicitly requests it.)
 - Use the official design tokens and CSS variables.
 - Use **muted gold** as the primary accent.
-- Use **warm coffee-black** backgrounds.
+- Use **warm ivory / off-white** backgrounds with **warm coffee-black** text for readable contrast.
 - Maintain compact spacing and typography.
 - Use **sharp edges with 0px border radius**.
 - Only avatars and pill badges may be fully rounded.
@@ -186,7 +186,7 @@ Before considering the implementation complete, verify:
 - [ ] No backend or API dependencies
 - [ ] Uses only mock data
 - [ ] Conforms to the Cosmos Terra Refined design system
-- [ ] Defaults to dark mode
+- [ ] Defaults to light mode
 - [ ] Uses sharp edges (0px border radius except approved exceptions)
 - [ ] Uses official typography and color tokens
 - [ ] Includes accessible focus and interaction states
@@ -200,7 +200,7 @@ Before considering the implementation complete, verify:
 |---------|-------------|-----|
 | Adding a backend or API to "make it real" | Prototype must run standalone in a browser | Use static JSON mock data |
 | Using rounded corners everywhere | Violates the 0px border-radius rule | Sharp edges; round only avatars and pill badges |
-| Substituting a different color palette | Breaks design-system consistency | Use muted gold + warm coffee-black tokens |
+| Substituting a different color palette | Breaks design-system consistency | Use muted gold accent + warm ivory surfaces (light tokens by default) |
 | Browser default focus outlines | Off-brand and against component spec | Use glow-based shadow focus states |
 | Generic names like `div2`, `temp` | Hard for humans and AI to extend | Use descriptive names like `project-card` |
 | Real customer/employee data | Security and privacy defect | Use clearly fictional mock data only |
@@ -210,7 +210,7 @@ Before considering the implementation complete, verify:
 | Question | If No | Action |
 |----------|-------|--------|
 | Does it run standalone in a browser? | Backend dependency present | Strip backend; use mock data |
-| Is dark mode the default? | Off-brand | Apply Cosmos Terra Refined dark tokens |
+| Is light mode the default? | Off-brand | Apply Cosmos Terra Refined light tokens |
 | Are edges sharp (0px radius)? | Visual defect | Remove border-radius except avatars/pills |
 | Are focus states glow-based? | Accessibility/brand gap | Replace outlines with glow shadows |
 | Is the code free of minification and deep nesting? | AI-unfriendly | Flatten structure, add intent comments |
