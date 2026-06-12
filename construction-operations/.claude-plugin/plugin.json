@@ -1,0 +1,11 @@
+{
+  "name": "construction-operations",
+  "description": "Construction site operations skills: site inspection, progress reporting, defect management, and more.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Isprava",
+    "url": "https://github.com/Isprava"
+  },
+  "homepage": "https://github.com/Isprava/claude-skills",
+  "license": "proprietary"
+}

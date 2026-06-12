@@ -1,0 +1,11 @@
+{
+  "name": "construction",
+  "description": "Construction project skills: project planning, safety compliance, cost estimation, and more.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Isprava",
+    "url": "https://github.com/Isprava"
+  },
+  "homepage": "https://github.com/Isprava/claude-skills",
+  "license": "proprietary"
+}

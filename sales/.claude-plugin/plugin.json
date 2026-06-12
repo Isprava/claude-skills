@@ -1,0 +1,11 @@
+{
+  "name": "sales",
+  "description": "Sales skills: sales playbook, proposal writing, objection handling, and more.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Isprava",
+    "url": "https://github.com/Isprava"
+  },
+  "homepage": "https://github.com/Isprava/claude-skills",
+  "license": "proprietary"
+}

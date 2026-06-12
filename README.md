@@ -408,11 +408,11 @@ Use the explicit form when you want a specific skill regardless of what you type
 
 ## Adding New Skills
 
-1. Copy `_templates/SKILL-TEMPLATE.md` to `{department}/{skill-name}/SKILL.md`
+1. Copy `_templates/SKILL-TEMPLATE.md` to `{department}/skills/{skill-name}/SKILL.md`
 2. Fill in the frontmatter (`name`, `description`, `metadata.department`) and skill content
-3. Add supporting reference files to `{department}/{skill-name}/references/` (optional)
+3. Add supporting reference files to `{department}/skills/{skill-name}/references/` (optional)
 4. Add the skill to this README under the correct department
-5. Add the skill to `.claude-plugin/marketplace.json`
+5. If you added a brand-new department/plugin, register it in `.claude-plugin/marketplace.json` and add a `{department}/.claude-plugin/plugin.json` manifest (existing plugins auto-discover any skill placed under their `skills/` folder)
 
 See `CLAUDE.md` for full authoring guidelines.
 
@@ -420,37 +420,51 @@ See `CLAUDE.md` for full authoring guidelines.
 
 ## Repository Structure
 
+Each department folder is a **plugin**: a `.claude-plugin/plugin.json` manifest plus
+skills nested under a `skills/` subdirectory (required for the Claude desktop app to
+discover them). The marketplace catalog lists each plugin by its source folder.
+
 ```
 claude-skills/
 ├── technology/
-│   ├── code-review/
-│   ├── incident-response/
-│   └── isp-feature-analysis/
+│   ├── .claude-plugin/
+│   │   └── plugin.json
+│   └── skills/
+│       ├── code-review/
+│       ├── incident-response/
+│       └── isp-feature-analysis/   (+ 15 more isp- skills)
 ├── marketing/
-│   ├── content-strategy/
-│   ├── campaign-planning/
-│   ├── lohono-brief/          ← Lohono campaign brief writer
-│   ├── lohono-persona/        ← Lohono guest persona builder
-│   ├── lohono-linkedin/       ← Lohono LinkedIn post writer
-│   ├── lohono-adcopy/         ← Lohono ad copy generator
-│   ├── lohono-review/         ← Lohono brand content reviewer
-│   └── lohono-report/         ← Lohono campaign report writer
+│   ├── .claude-plugin/plugin.json
+│   └── skills/
+│       ├── content-strategy/
+│       ├── campaign-planning/
+│       ├── marketing-insights-skill/
+│       └── seo-audit/
+├── lohono-marketing/               ← Lohono brand plugin (its own source folder)
+│   ├── .claude-plugin/plugin.json
+│   └── skills/
+│       ├── lohono-brief/           ← Lohono campaign brief writer
+│       ├── lohono-persona/         ← Lohono guest persona builder
+│       ├── lohono-linkedin/        ← Lohono LinkedIn post writer
+│       ├── lohono-adcopy/          ← Lohono ad copy generator
+│       ├── lohono-review/          ← Lohono brand content reviewer
+│       └── lohono-report/          ← Lohono campaign report writer
 ├── sales/
-│   ├── sales-playbook/
-│   └── proposal-writing/
+│   └── skills/{sales-playbook, proposal-writing}/
 ├── construction/
-│   ├── project-planning/
-│   └── safety-compliance/
+│   └── skills/{project-planning, safety-compliance}/
 ├── hospitality-operations/
-│   ├── guest-experience/
-│   └── staff-scheduling/
+│   └── skills/{guest-experience, staff-scheduling}/
 ├── construction-operations/
-│   ├── site-inspection/
-│   └── progress-reporting/
+│   └── skills/{site-inspection, progress-reporting}/
+├── hr/
+│   └── skills/{candidate-screener}/
+├── organisation/
+│   └── skills/{interview-evaluator}/
 ├── _templates/
 │   └── SKILL-TEMPLATE.md
 ├── .claude-plugin/
-│   └── marketplace.json
+│   └── marketplace.json            ← lists every department plugin by source
 ├── CLAUDE.md
 └── README.md
 ```

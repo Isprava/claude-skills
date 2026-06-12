@@ -1,0 +1,11 @@
+{
+  "name": "marketing",
+  "description": "Marketing skills: content strategy, campaign planning, SEO audit, and marketing insights.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Isprava",
+    "url": "https://github.com/Isprava"
+  },
+  "homepage": "https://github.com/Isprava/claude-skills",
+  "license": "proprietary"
+}

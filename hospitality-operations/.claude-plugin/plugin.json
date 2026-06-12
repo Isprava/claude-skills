@@ -1,0 +1,11 @@
+{
+  "name": "hospitality-operations",
+  "description": "Hospitality operations skills: guest experience, staff scheduling, service recovery, and more.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Isprava",
+    "url": "https://github.com/Isprava"
+  },
+  "homepage": "https://github.com/Isprava/claude-skills",
+  "license": "proprietary"
+}

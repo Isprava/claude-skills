@@ -1,0 +1,11 @@
+{
+  "name": "organisation",
+  "description": "Organisation-wide skills: interview evaluation, candidate assessment, and more.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Isprava",
+    "url": "https://github.com/Isprava"
+  },
+  "homepage": "https://github.com/Isprava/claude-skills",
+  "license": "proprietary"
+}

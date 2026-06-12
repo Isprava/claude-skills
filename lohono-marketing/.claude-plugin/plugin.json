@@ -1,0 +1,11 @@
+{
+  "name": "lohono-marketing",
+  "description": "Brand-specific marketing skills for Lohono Stays: campaign briefs, guest personas, LinkedIn content, ad copy, brand content review, and campaign performance reporting.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Isprava",
+    "url": "https://github.com/Isprava"
+  },
+  "homepage": "https://github.com/Isprava/claude-skills",
+  "license": "proprietary"
+}
