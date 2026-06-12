@@ -19,9 +19,9 @@ Learnings about how to get the best results from Claude Code in this repo.
 
 | Pattern | When to use | Why it works |
 |---------|------------|-------------|
-| Provide a one-line idea + one sentence of context | When starting isp_prd_builder or any feature analysis skill | Reduces the number of inference questions Claude has to ask |
-| Reference the skill by name (e.g. "use isp_gap_audit") | When you know exactly which skill fits | Skips the trigger-phrase matching and goes straight to the skill |
-| Confirm the "Today vs. After" table in Round 3 of PRD sessions | During isp_prd_builder sessions | Catches misunderstandings before the full PRD is drafted |
+| Provide a one-line idea + one sentence of context | When starting isp-prd-builder or any feature analysis skill | Reduces the number of inference questions Claude has to ask |
+| Reference the skill by name (e.g. "use isp-gap-audit") | When you know exactly which skill fits | Skips the trigger-phrase matching and goes straight to the skill |
+| Confirm the "Today vs. After" table in Round 3 of PRD sessions | During isp-prd-builder sessions | Catches misunderstandings before the full PRD is drafted |
 | State what you already know and what you need | Any research or analysis task | Prevents Claude from repeating work you've done |
 
 ---
@@ -32,7 +32,7 @@ Learnings about how to get the best results from Claude Code in this repo.
 |---------|-------------|----------------|
 | Asking Claude to "just figure it out" without any context | Produces generic output; wastes rounds on clarification | Provide at minimum: who it's for and what problem it solves |
 | Saying "make it better" without specifying what "better" means | Claude will make arbitrary improvements that may not match intent | Name the dimension: speed, clarity, completeness, tone, etc. |
-| Asking for a complete implementation plan in one message | Produces shallow output; misses edge cases | Use the isp_ phase skills sequentially with review between phases |
+| Asking for a complete implementation plan in one message | Produces shallow output; misses edge cases | Use the isp- phase skills sequentially with review between phases |
 | Skipping confirmation steps mid-skill | Errors compound across phases | Confirm tables and summaries when the skill asks — it asks for a reason |
 
 ---

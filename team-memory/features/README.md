@@ -2,19 +2,19 @@
 
 Each folder here holds the shared context for one feature — accumulated as each skill phase runs. When a skill finishes, it saves a context file here. When the next skill starts on the same feature, it reads what's already been learned.
 
-This means Product can run `isp_prd_builder` and Dev can run `isp_tech_specs` days later — Dev picks up everything Product discovered without needing to be briefed.
+This means Product can run `isp-prd-builder` and Dev can run `isp-tech-specs` days later — Dev picks up everything Product discovered without needing to be briefed.
 
 ---
 
 ## How it works
 
 ```
-isp_prd_builder   → saves  prd-context.md
+isp-prd-builder   → saves  prd-context.md
        ↓
-isp_tech_specs    → reads  prd-context.md
+isp-tech-specs    → reads  prd-context.md
                   → saves  tech-specs-context.md
        ↓
-isp_test_cases    → reads  prd-context.md + tech-specs-context.md
+isp-test-cases    → reads  prd-context.md + tech-specs-context.md
                   → saves  test-cases-context.md
 ```
 
@@ -29,9 +29,9 @@ team-memory/features/
 ├── README.md                            ← this file
 ├── _TEMPLATE.md                         ← copy this when adding a new phase context
 └── <feature-slug>/
-    ├── prd-context.md                   ← saved by isp_prd_builder
-    ├── tech-specs-context.md            ← saved by isp_tech_specs
-    ├── test-cases-context.md            ← saved by isp_test_cases
+    ├── prd-context.md                   ← saved by isp-prd-builder
+    ├── tech-specs-context.md            ← saved by isp-tech-specs
+    ├── test-cases-context.md            ← saved by isp-test-cases
     └── (other phase contexts as needed)
 ```
 
@@ -44,21 +44,21 @@ team-memory/features/
 
 | Skill | Reads | Saves |
 |-------|-------|-------|
-| `isp_prd_builder` | — | `prd-context.md` |
-| `isp_tech_specs` | `prd-context.md` | `tech-specs-context.md` |
-| `isp_test_cases` | `prd-context.md`, `tech-specs-context.md` | `test-cases-context.md` |
-| `isp_effort_estimate` | `prd-context.md`, `tech-specs-context.md` | `effort-context.md` |
-| `isp_checklist` | `prd-context.md` | `checklist-context.md` |
-| `isp_deliverable` | all context files present | — |
+| `isp-prd-builder` | — | `prd-context.md` |
+| `isp-tech-specs` | `prd-context.md` | `tech-specs-context.md` |
+| `isp-test-cases` | `prd-context.md`, `tech-specs-context.md` | `test-cases-context.md` |
+| `isp-effort-estimate` | `prd-context.md`, `tech-specs-context.md` | `effort-context.md` |
+| `isp-checklist` | `prd-context.md` | `checklist-context.md` |
+| `isp-deliverable` | all context files present | — |
 
 ---
 
 ## Lifecycle of a feature context folder
 
-1. **Product** runs `isp_prd_builder` → folder created, `prd-context.md` written
-2. **Dev** runs `isp_tech_specs` → reads `prd-context.md`, writes `tech-specs-context.md`
-3. **QA** runs `isp_test_cases` → reads both, writes `test-cases-context.md`
-4. **PM** runs `isp_deliverable` → reads all context files, assembles final deliverable
+1. **Product** runs `isp-prd-builder` → folder created, `prd-context.md` written
+2. **Dev** runs `isp-tech-specs` → reads `prd-context.md`, writes `tech-specs-context.md`
+3. **QA** runs `isp-test-cases` → reads both, writes `test-cases-context.md`
+4. **PM** runs `isp-deliverable` → reads all context files, assembles final deliverable
 5. After the feature ships → folder can be archived or deleted
 
 ---

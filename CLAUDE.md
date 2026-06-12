@@ -127,7 +127,7 @@ See `team-memory/CONTRIBUTING.md` for how to add, update, or remove entries.
 
 When a skill produces a deliverable for a named feature (PRD, spec document, test suite, etc.), it must save a compact context file so downstream skills can pick up where it left off — without the user needing to re-brief the next team.
 
-### Protocol for every isp_ skill
+### Protocol for every isp- skill
 
 **On start:**
 1. Determine the feature slug (derive from the output filename the user provides, or ask once: "What is the feature name or slug for this work?").
@@ -143,12 +143,12 @@ When a skill produces a deliverable for a named feature (PRD, spec document, tes
 
 | Skill | Context file | What to capture |
 |-------|-------------|-----------------|
-| `isp_prd_builder` | `prd-context.md` | Problem statement, user roles, scope (in/out), Must requirements, open questions, impacted areas |
-| `isp_tech_specs` | `tech-specs-context.md` | Architecture decisions, new/modified files, API contracts, breaking changes, risks |
-| `isp_test_cases` | `test-cases-context.md` | Coverage summary, uncovered requirements, regression risks tested, accessibility gaps |
-| `isp_checklist` | `checklist-context.md` | CL item count by tier, high-complexity items, items flagged for team review |
-| `isp_effort_estimate` | `effort-context.md` | Effort ranges by mode, key assumptions, high-uncertainty items |
-| `isp_deliverable` | — | Reads all; does not save a new context file |
+| `isp-prd-builder` | `prd-context.md` | Problem statement, user roles, scope (in/out), Must requirements, open questions, impacted areas |
+| `isp-tech-specs` | `tech-specs-context.md` | Architecture decisions, new/modified files, API contracts, breaking changes, risks |
+| `isp-test-cases` | `test-cases-context.md` | Coverage summary, uncovered requirements, regression risks tested, accessibility gaps |
+| `isp-checklist` | `checklist-context.md` | CL item count by tier, high-complexity items, items flagged for team review |
+| `isp-effort-estimate` | `effort-context.md` | Effort ranges by mode, key assumptions, high-uncertainty items |
+| `isp-deliverable` | — | Reads all; does not save a new context file |
 
 ### Feature slug convention
 

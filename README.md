@@ -38,7 +38,7 @@ A structured framework for detecting, containing, resolving, and learning from p
 
 **Covers:** Severity levels, communication templates, investigation, containment, post-mortem structure
 
-### `isp_feature_analysis`
+### `isp-feature-analysis`
 **Analyze PRD vs Figma and produce a complete implementation plan**
 
 A structured, interactive 9-phase workflow that compares a Product Requirements Document, Figma designs, and the current production UI against a real codebase — then produces a single Markdown deliverable covering gap analysis, implementation checklist, test cases, and technical specs.
@@ -47,7 +47,7 @@ A structured, interactive 9-phase workflow that compares a Product Requirements 
 
 **Covers:** Intake & confirmation, PRD requirement extraction, Figma inventory, current-state analysis, three-way gap analysis, implementation checklist, test cases (unit/integration/E2E/a11y/responsive/edge cases), technical specs
 
-### `isp_prd_builder`
+### `isp-prd-builder`
 **Turn a single-line idea into a comprehensive PRD through interactive dialogue**
 
 Five rounds of targeted questions — problem context, user roles, existing vs. new behaviour, scope, and acceptance criteria — followed by automated PRD generation and a 5-pass completeness review. Covers existing functionality, proposed changes, user roles, acceptance criteria, scope, out of scope, impacted areas, dependencies, analytics, and open questions.
@@ -58,7 +58,7 @@ Five rounds of targeted questions — problem context, user roles, existing vs. 
 
 ---
 
-### `isp_gap_audit`
+### `isp-gap-audit`
 **Audit gaps and ambiguities between a PRD, Figma, and the actual codebase**
 
 A focused, iterative gap audit across two axes — PRD ↔ Code and PRD ↔ Figma — that stress-tests every finding through five independent passes. Only gaps that survive self-critique and re-emerge consistently are reported as high-confidence. Produces a ranked, confidence-scored gap register with clear owner assignment.
@@ -71,7 +71,7 @@ A focused, iterative gap audit across two axes — PRD ↔ Code and PRD ↔ Figm
 
 ---
 
-### `isp_central_ui`
+### `isp-central-ui`
 **Audit a UI against the Isprava Central design language and enterprise standards**
 
 A two-pass design-system reviewer: Pass 1 audits a PNG screenshot value-by-value against the Isprava Central spec (colors, typography, component patterns, spacing); Pass 2 cross-checks the live route or repo source to confirm spec values are driven by tokens/styling hooks rather than hard-coded literals. Scores 10 dimensions, reports every color/type drift, computes WCAG 2.1/2.2 AA contrast ratios for all text and UI pairs, supplies compliant replacement colors that preserve brand intent, and produces a prioritized P0→P2 fix list.
@@ -84,7 +84,7 @@ A two-pass design-system reviewer: Pass 1 audits a PNG screenshot value-by-value
 
 ---
 
-### `isp_enterprise_ui`
+### `isp-enterprise-ui`
 **Audit and upgrade enterprise SSR UI components to production-ready standards**
 
 Five-pass convergence audit across SSR compatibility, component architecture (Server vs Client Components), Isprava Central design token compliance, Core Web Vitals performance, and WCAG 2.1/2.2 AA accessibility. Produces a convergence-scored finding table, a prioritized P0→P2 upgrade plan with `file:line` citations, a file-level change list, and concrete SSR remediation code patterns. Integrates with the Feature Context Chain (loads PRD + tech-spec context, saves `enterprise-ui-context.md`).
@@ -97,7 +97,7 @@ Five-pass convergence audit across SSR compatibility, component architecture (Se
 
 ---
 
-### `isp_init_project`
+### `isp-init-project`
 **Mandatory governance standards for generating prototypes and POCs**
 
 A non-negotiable governance layer for prototype generation. When active, every screen, project, or POC must be frontend-only (HTML5/CSS3/minimal vanilla JS, static JSON mock data, no backend/API), conform to the Cosmos Terra Refined design system (dark mode default, muted gold accent, warm coffee-black backgrounds, sharp 0px edges, glow-based focus states), use the official type stack (Inter / Space Grotesk / JetBrains Mono), and ship as a standalone `index.html` that opens directly in a browser. Includes a self-validation checklist; any deviation is treated as a defect to be corrected before completion.
@@ -108,7 +108,7 @@ A non-negotiable governance layer for prototype generation. When active, every s
 
 #### How to use
 
-1. **Activate the skill before you start building.** Open a Claude Code session in your prototype workspace and either type `/isp_init_project` or simply describe the screen you want — e.g. *"Build a prototype admin dashboard with a project table and an approval modal."* The trigger phrases above auto-activate it.
+1. **Activate the skill before you start building.** Open a Claude Code session in your prototype workspace and either type `/isp-init-project` or simply describe the screen you want — e.g. *"Build a prototype admin dashboard with a project table and an approval modal."* The trigger phrases above auto-activate it.
 2. **Describe the screen, not the stack.** Talk about pages, components, and interactions ("a sidebar with nav, a filterable project table, a right-hand activity feed"). The skill fixes the stack for you — frontend-only, mock data, Cosmos Terra Refined tokens.
 3. **Let it generate `index.html`.** By default you get a single self-contained file with embedded CSS, embedded JS, and static mock data. Open it directly in a browser — no build step, no server, no install.
 4. **Iterate in plain language.** Ask for changes ("make the table sortable", "add a toast on save", "add a settings tab"). Because the output stays flat, commented, and descriptively named, each follow-up edit is easy for the AI to apply.
@@ -131,22 +131,22 @@ A non-negotiable governance layer for prototype generation. When active, every s
 
 ### ISP Feature Analysis — Individual Phase Skills
 
-Each phase of `isp_feature_analysis` is also available as a standalone skill with its own 5-pass convergence scoring. Use them independently or chain them in sequence.
+Each phase of `isp-feature-analysis` is also available as a standalone skill with its own 5-pass convergence scoring. Use them independently or chain them in sequence.
 
 | Skill | Phase | What it does |
 |-------|-------|-------------|
-| `isp_intake` | 1 | Gather and validate all inputs across 5 passes; surface missing or conflicting fields before analysis begins |
-| `isp_prd_analysis` | 2 | Extract and classify every PRD requirement across 5 independent reads; score each by convergence |
-| `isp_figma_analysis` | 3 | Catalogue all components, states, breakpoints, and interactions from Figma across 5 inspection passes |
-| `isp_current_state` | 4 | Classify every existing UI component (Keep/Modify/Replace/Remove/New) across 5 passes; flag regression risks |
-| `isp_gap_analysis` | 5 | Three-way PRD ↔ Figma ↔ Current comparison across 5 passes; confidence-ranked gap table with owner assignment |
-| `isp_checklist` | 6 | Generate atomic developer checklist from gaps across 5 passes; each item traced to a GAP-ID and complexity-tiered |
-| `isp_test_cases` | 7 | Generate unit/integration/E2E/visual/responsive/a11y/edge test cases across 5 passes; coverage matrix vs. requirements |
-| `isp_tech_specs` | 8 | Produce file-level changes, component hierarchy, API contracts, and state management specs grounded in the real repo across 5 passes |
-| `isp_effort_estimate` | 9 | Three-mode estimates (Unsupervised AI / Supervised AI / Manual) across 5 passes with varied assumptions; converged range + confidence rating |
-| `isp_deliverable` | 10 | Assemble all phase outputs into one Markdown document; 5-pass completeness and cross-reference verification |
+| `isp-intake` | 1 | Gather and validate all inputs across 5 passes; surface missing or conflicting fields before analysis begins |
+| `isp-prd-analysis` | 2 | Extract and classify every PRD requirement across 5 independent reads; score each by convergence |
+| `isp-figma-analysis` | 3 | Catalogue all components, states, breakpoints, and interactions from Figma across 5 inspection passes |
+| `isp-current-state` | 4 | Classify every existing UI component (Keep/Modify/Replace/Remove/New) across 5 passes; flag regression risks |
+| `isp-gap-analysis` | 5 | Three-way PRD ↔ Figma ↔ Current comparison across 5 passes; confidence-ranked gap table with owner assignment |
+| `isp-checklist` | 6 | Generate atomic developer checklist from gaps across 5 passes; each item traced to a GAP-ID and complexity-tiered |
+| `isp-test-cases` | 7 | Generate unit/integration/E2E/visual/responsive/a11y/edge test cases across 5 passes; coverage matrix vs. requirements |
+| `isp-tech-specs` | 8 | Produce file-level changes, component hierarchy, API contracts, and state management specs grounded in the real repo across 5 passes |
+| `isp-effort-estimate` | 9 | Three-mode estimates (Unsupervised AI / Supervised AI / Manual) across 5 passes with varied assumptions; converged range + confidence rating |
+| `isp-deliverable` | 10 | Assemble all phase outputs into one Markdown document; 5-pass completeness and cross-reference verification |
 
-**Chaining example:** `isp_intake` → `isp_prd_analysis` → `isp_figma_analysis` → `isp_current_state` → `isp_gap_analysis` → `isp_checklist` → `isp_test_cases` → `isp_tech_specs` → `isp_effort_estimate` → `isp_deliverable`
+**Chaining example:** `isp-intake` → `isp-prd-analysis` → `isp-figma-analysis` → `isp-current-state` → `isp-gap-analysis` → `isp-checklist` → `isp-test-cases` → `isp-tech-specs` → `isp-effort-estimate` → `isp-deliverable`
 
 ---
 
@@ -396,11 +396,11 @@ There are two ways to invoke a skill:
 
 > "Analyze the gaps between this PRD and the Figma designs"
 
-triggers `isp_feature_analysis` without any special syntax.
+triggers `isp-feature-analysis` without any special syntax.
 
 **Explicit** — type `/` followed by the skill name to invoke it directly:
 
-> `/isp_feature_analysis`
+> `/isp-feature-analysis`
 
 Use the explicit form when you want a specific skill regardless of what you type, or when you want to see a skill's options before starting.
 
@@ -425,7 +425,7 @@ claude-skills/
 ├── technology/
 │   ├── code-review/
 │   ├── incident-response/
-│   └── isp_feature_analysis/
+│   └── isp-feature-analysis/
 ├── marketing/
 │   ├── content-strategy/
 │   ├── campaign-planning/
