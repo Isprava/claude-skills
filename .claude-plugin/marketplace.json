@@ -43,7 +43,8 @@
         "./isp_effort_estimate",
         "./isp_deliverable",
         "./isp_central_ui",
-        "./isp_enterprise_ui"
+        "./isp_enterprise_ui",
+        "./isp_init_project"
       ]
     },
     {

@@ -6,7 +6,7 @@ A collection of Claude Code skills organized by department. Each skill encodes d
 
 | Department | Skills | Description |
 |-----------|--------|-------------|
-| [Technology](#technology) | 15 | Engineering practices: code review, incident response, ISP feature analysis suite (10 phase skills), gap audit, PRD builder |
+| [Technology](#technology) | 18 | Engineering practices: code review, incident response, ISP feature analysis suite (10 phase skills), gap audit, PRD builder, UI auditors, prototype standards |
 | [Marketing](#marketing) | 2 | Marketing frameworks: content strategy, campaign planning |
 | [Lohono Stays Marketing](#lohono-stays-marketing) | 6 | Brand-specific skills for Lohono Stays |
 | [Sales](#sales) | 2 | Sales methodology: sales playbook, proposal writing |
@@ -94,6 +94,38 @@ Five-pass convergence audit across SSR compatibility, component architecture (Se
 **Inputs:** target component path or route, feature slug (for context chain)
 
 **Covers:** SSR safety (window/document guards, client-only library isolation, hydration mismatch detection), RSC architecture (Server vs Client directive placement, component boundary splitting, Suspense/Error boundaries), Isprava Central token compliance, Core Web Vitals (LCP, CLS, INP, bundle size, dynamic imports), WCAG AA accessibility (contrast, focus, ARIA, semantic HTML)
+
+---
+
+### `isp_init_project`
+**Mandatory governance standards for generating prototypes and POCs**
+
+A non-negotiable governance layer for prototype generation. When active, every screen, project, or POC must be frontend-only (HTML5/CSS3/minimal vanilla JS, static JSON mock data, no backend/API), conform to the Cosmos Terra Refined design system (dark mode default, muted gold accent, warm coffee-black backgrounds, sharp 0px edges, glow-based focus states), use the official type stack (Inter / Space Grotesk / JetBrains Mono), and ship as a standalone `index.html` that opens directly in a browser. Includes a self-validation checklist; any deviation is treated as a defect to be corrected before completion.
+
+**Use when:** "build a prototype", "init a project", "scaffold a POC", "proof of concept", "Cosmos prototype", "high-fidelity mockup", "frontend-only demo", or starting any new prototype/screen that must follow the org design language
+
+**Covers:** Frontend-only technology constraints, mock-data rules, Cosmos Terra Refined design tokens, typography, dense layout patterns, component & focus-state specs, accessibility (keyboard nav, 44×44px targets, reduced-motion, contrast), code organization & naming, JS interaction scope, AI-readability, self-validation checklist, enforcement directive
+
+#### How to use
+
+1. **Activate the skill before you start building.** Open a Claude Code session in your prototype workspace and either type `/isp_init_project` or simply describe the screen you want — e.g. *"Build a prototype admin dashboard with a project table and an approval modal."* The trigger phrases above auto-activate it.
+2. **Describe the screen, not the stack.** Talk about pages, components, and interactions ("a sidebar with nav, a filterable project table, a right-hand activity feed"). The skill fixes the stack for you — frontend-only, mock data, Cosmos Terra Refined tokens.
+3. **Let it generate `index.html`.** By default you get a single self-contained file with embedded CSS, embedded JS, and static mock data. Open it directly in a browser — no build step, no server, no install.
+4. **Iterate in plain language.** Ask for changes ("make the table sortable", "add a toast on save", "add a settings tab"). Because the output stays flat, commented, and descriptively named, each follow-up edit is easy for the AI to apply.
+5. **Check the self-validation checklist.** Before calling a prototype done, the skill scores it 0–10 against the checklist (frontend-only, dark mode, sharp edges, official tokens, accessible focus states, browser-openable). Anything below 10/10 is flagged as a defect with a concrete fix.
+
+> **Need a backend, auth, or a real API?** Those are off by default. Say so explicitly ("add a mock login flow", "wire this to a real endpoint") and the skill will either adapt or tell you the request conflicts with prototype standards before proceeding.
+
+#### What it helps with
+
+| Goal | How this skill helps |
+|------|---------------------|
+| **Move fast on POCs** | One standalone `index.html` you can open, share, or drop into a deck — no scaffolding, dependencies, or environment setup |
+| **Stay on-brand automatically** | Enforces the Cosmos Terra Refined design language (dark mode, muted gold, coffee-black, sharp edges, official type stack) so every prototype looks consistent without a designer in the loop |
+| **Keep prototypes AI-editable** | Flat structure, descriptive names, and intent comments mean you (or the next AI tool) can extend the prototype without untangling it |
+| **De-risk the demo** | Mock-data-only rules keep real customer/employee data, secrets, and credentials out of throwaway prototypes |
+| **Smooth the path to production** | Clean, sectioned, design-system-true code migrates into a real implementation far more easily than ad-hoc prototype code |
+| **Make reviews effortless** | Reviewers see a consistent layout vocabulary and a clear pass/fail checklist instead of judging bespoke one-off styling |
 
 ---
 
